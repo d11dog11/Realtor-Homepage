@@ -200,7 +200,7 @@ await createGoogleCalendarEvent(
 You now have:
 - ✅ Email sending from your own account
 - ✅ Calendar event creation
-- ✅ Contact import capability
+- ✅ Contact import and sync capability
 - ✅ Automatic token management
 - ✅ Multi-provider support
 

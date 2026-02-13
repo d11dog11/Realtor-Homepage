@@ -9,7 +9,7 @@ interface Integration {
 }
 
 const PROVIDERS = [
-    { id: "google", name: "Gmail (Google)", icon: "📧", color: "#4285F4" },
+    { id: "google", name: "Gmail (Google)", icon: "📧", color: "#DB4437" },
     { id: "microsoft", name: "Outlook (Microsoft)", icon: "📮", color: "#0078D4" },
     { id: "yahoo", name: "Yahoo Mail", icon: "📬", color: "#6001D2" },
 ];
@@ -144,7 +144,7 @@ export default function IntegrationsManager() {
                 <ul style={{ fontSize: "0.875rem", color: "#1e40af", lineHeight: "1.6" }}>
                     <li><strong>Email:</strong> Send emails directly from your connected account</li>
                     <li><strong>Calendar:</strong> Create and manage calendar events</li>
-                    <li><strong>Contacts:</strong> Import contacts from your email provider</li>
+                    <li><strong>Contacts:</strong> Import and sync contacts from your email provider</li>
                 </ul>
             </div>
         </div>

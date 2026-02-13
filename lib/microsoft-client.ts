@@ -17,7 +17,7 @@ const SCOPES = [
     "Mail.Send",
     "Mail.Read",
     "Calendars.ReadWrite",
-    "Contacts.Read",
+    "Contacts.ReadWrite",
     "User.Read",
 ];
 
@@ -55,7 +55,7 @@ export const handleMicrosoftCallback = async (code: string) => {
         throw new Error("Failed to acquire token");
     }
 
-    const { accessToken, refreshToken, expiresOn, account } = response;
+    const { accessToken, refreshToken, expiresOn, account } = response as any;
     const email = account?.username || null;
 
     // Save/Update in DB
@@ -105,7 +105,7 @@ const refreshMicrosoftToken = async (integration: any) => {
             scopes: SCOPES,
         };
 
-        const response = await cca.acquireTokenByRefreshToken(tokenRequest);
+        const response = await cca.acquireTokenByRefreshToken(tokenRequest) as any;
 
         if (!response) {
             throw new Error("Failed to refresh token");
@@ -263,4 +263,28 @@ export const getMicrosoftUserProfile = async () => {
     const client = await getGraphClient();
     const profile = await client.api("/me").get();
     return profile;
+};
+
+export const createMicrosoftContact = async (contact: {
+    firstName: string;
+    lastName: string;
+    email: string;
+    phone?: string;
+}) => {
+    const client = await getGraphClient();
+
+    const newContact = {
+        givenName: contact.firstName,
+        surname: contact.lastName,
+        emailAddresses: [
+            {
+                address: contact.email,
+                name: `${contact.firstName} ${contact.lastName}`,
+            },
+        ],
+        mobilePhone: contact.phone,
+    };
+
+    const response = await client.api("/me/contacts").post(newContact);
+    return response;
 };

@@ -11,7 +11,14 @@ export default function AdminSidebar() {
         { href: "/admin/templates", label: "Email Templates" },
         { href: "/admin/campaigns", label: "Email Campaigns" },
         { href: "/admin/integrations", label: "Integrations" },
-        { href: "/admin/settings", label: "Settings" },
+        {
+            href: "/admin/settings",
+            label: "Settings",
+            subLinks: [
+                { href: "/admin/settings#security", label: "Security" },
+                { href: "/admin/settings#contacts", label: "Contact Tools" },
+            ]
+        },
     ];
 
     return (
@@ -22,22 +29,46 @@ export default function AdminSidebar() {
                 {links.map(link => {
                     const isActive = pathname === link.href;
                     return (
-                        <Link
-                            key={link.href}
-                            href={link.href}
-                            style={{
-                                display: "block",
-                                padding: "0.75rem 1rem",
-                                borderRadius: "0.375rem",
-                                textDecoration: "none",
-                                fontWeight: "500",
-                                color: isActive ? "#2563eb" : "#4b5563",
-                                background: isActive ? "#eff6ff" : "transparent",
-                                transition: "all 0.2s"
-                            }}
-                        >
-                            {link.label}
-                        </Link>
+                        <div key={link.href} style={{ display: "flex", flexDirection: "column", gap: "0.25rem" }}>
+                            <Link
+                                href={link.href}
+                                style={{
+                                    display: "block",
+                                    padding: "0.75rem 1rem",
+                                    borderRadius: "0.375rem",
+                                    textDecoration: "none",
+                                    fontWeight: "500",
+                                    color: isActive ? "#2563eb" : "#4b5563",
+                                    background: isActive ? "#eff6ff" : "transparent",
+                                    transition: "all 0.2s"
+                                }}
+                            >
+                                {link.label}
+                            </Link>
+
+                            {isActive && link.subLinks && (
+                                <div style={{ display: "flex", flexDirection: "column", paddingLeft: "2rem", gap: "0.25rem", marginBottom: "0.5rem" }}>
+                                    {link.subLinks.map(sub => (
+                                        <Link
+                                            key={sub.href}
+                                            href={sub.href}
+                                            style={{
+                                                fontSize: "0.875rem",
+                                                color: "#6b7280",
+                                                textDecoration: "none",
+                                                padding: "0.25rem 0.5rem",
+                                                borderRadius: "0.25rem",
+                                                transition: "all 0.2s"
+                                            }}
+                                            onMouseEnter={(e) => (e.currentTarget.style.color = "#2563eb")}
+                                            onMouseLeave={(e) => (e.currentTarget.style.color = "#6b7280")}
+                                        >
+                                            • {sub.label}
+                                        </Link>
+                                    ))}
+                                </div>
+                            )}
+                        </div>
                     )
                 })}
             </nav>

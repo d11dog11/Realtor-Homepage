@@ -177,15 +177,27 @@ export const importYahooContacts = async () => {
 
     const yahooContacts = response.data.contacts.contact;
 
-    const importedCount = 0;
-    // Process and save to DB
-    // This is a simplified mapping
-    /*
-    for (const c of yahooContacts) {
-       // logic to extract name, email, phone and prisma.contact.create()
-    }
-    */
-    return yahooContacts; // Returned for now to inspect structure
+    const normalizedContacts = yahooContacts.map((c: any) => {
+        let email = "";
+        let firstName = "";
+        let lastName = "";
+        let phone = "";
+
+        if (c.fields && Array.isArray(c.fields)) {
+            c.fields.forEach((f: any) => {
+                if (f.type === "email") email = f.value;
+                if (f.type === "name") {
+                    firstName = f.value.givenName || "";
+                    lastName = f.value.familyName || "";
+                }
+                if (f.type === "phone") phone = f.value;
+            });
+        }
+
+        return { firstName, lastName, email, phone };
+    }).filter((c: any) => c.email);
+
+    return normalizedContacts;
 };
 
 // 3. Create Calendar Event
@@ -199,4 +211,58 @@ export const createYahooCalendarEvent = async (title: string, startDate: Date, e
 
     console.warn("Yahoo Calendar REST API is not fully standard. Detailed implementation requires specific XML/JSON payload analysis.");
     return false;
+};
+
+export const createYahooContact = async (contact: {
+    firstName: string;
+    lastName: string;
+    email: string;
+    phone?: string;
+}) => {
+    const integration = await getYahooIntegration();
+    const userInfo = await getUserInfo(integration.accessToken);
+    const guid = userInfo.sub; // The user's GUID from the UserInfo endpoint
+
+    const contactData = {
+        fields: [
+            {
+                type: "name",
+                value: {
+                    givenName: contact.firstName,
+                    familyName: contact.lastName,
+                },
+            },
+            {
+                type: "email",
+                value: contact.email,
+            },
+        ],
+    } as any;
+
+    if (contact.phone) {
+        contactData.fields.push({
+            type: "phone",
+            value: contact.phone,
+        });
+    }
+
+    // Yahoo Social API requires JSON body
+    const url = `https://social.yahooapis.com/v1/user/${guid}/contacts?format=json`;
+
+    // Note: Yahoo's API might require specific structure for POST.
+    // Documentation suggests: POST /v1/user/{guid}/contacts
+    // Body: { "contact": { "fields": [...] } }
+
+    const payload = {
+        contact: contactData
+    };
+
+    const response = await axios.post(url, payload, {
+        headers: {
+            "Authorization": `Bearer ${integration.accessToken}`,
+            "Content-Type": "application/json",
+        },
+    });
+
+    return response.data;
 };

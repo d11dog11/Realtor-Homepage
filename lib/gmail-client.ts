@@ -13,7 +13,7 @@ const SCOPES = [
     "https://www.googleapis.com/auth/gmail.readonly",
     "https://www.googleapis.com/auth/calendar",
     "https://www.googleapis.com/auth/calendar.events",
-    "https://www.googleapis.com/auth/contacts.readonly",
+    "https://www.googleapis.com/auth/contacts",
     "https://www.googleapis.com/auth/userinfo.email",
     "https://www.googleapis.com/auth/userinfo.profile",
 ];
@@ -287,4 +287,43 @@ export const getGoogleEmails = async (maxResults: number = 10, query?: string) =
     );
 
     return fullMessages;
+};
+
+export const createGoogleContact = async (contact: {
+    firstName: string;
+    lastName: string;
+    email: string;
+    phone?: string;
+}) => {
+    const auth = await getAuthClient();
+    const people = google.people({ version: "v1", auth });
+
+    const resource = {
+        names: [
+            {
+                givenName: contact.firstName,
+                familyName: contact.lastName,
+            },
+        ],
+        emailAddresses: [
+            {
+                value: contact.email,
+            },
+        ],
+        phoneNumbers: contact.phone
+            ? [
+                {
+                    value: contact.phone,
+                },
+            ]
+            : [],
+    };
+
+    // The type definition for `people.people.createContact` might vary slightly depending on googleapis version
+    // Check if `people.people.createContact` exists on `people` object
+    const response = await people.people.createContact({
+        requestBody: resource,
+    });
+
+    return response.data;
 };

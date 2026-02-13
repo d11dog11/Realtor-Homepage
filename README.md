@@ -60,7 +60,7 @@ This application supports **three major email providers** with full OAuth 2.0 in
 ### Features:
 - ✉️ Send emails from your own email account
 - 📅 Create and manage calendar events
-- 📇 Import contacts from your email provider
+- 📇 Import and sync contacts from your email provider
 - 🔄 Automatic token refresh
 - 🎯 Multi-provider support with automatic failover
 

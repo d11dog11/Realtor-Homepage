@@ -21,7 +21,7 @@ This application supports three major email and calendar providers through OAuth
 - ⏰ Set event times and descriptions
 
 ### Contacts Capabilities
-- 📇 Import contacts from your email provider
+- 📇 Import and sync contacts from your email provider
 - 🔄 Sync contact information
 - 📊 Merge with CRM data
 

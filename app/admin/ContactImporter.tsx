@@ -37,7 +37,7 @@ export default function ContactImporter() {
     };
 
     return (
-        <div style={{ marginTop: "2rem", padding: "1.5rem", backgroundColor: "#f9fafb", borderRadius: "8px", border: "1px solid #e5e7eb" }}>
+        <div style={{ padding: "1.5rem", backgroundColor: "#f9fafb", borderRadius: "8px", border: "1px solid #e5e7eb", height: "100%" }}>
             <h3 style={{ fontSize: "1.25rem", fontWeight: "600", marginTop: 0, marginBottom: "1rem" }}>
                 📇 Import Contacts
             </h3>
@@ -52,7 +52,7 @@ export default function ContactImporter() {
                     disabled={loading}
                     style={{
                         padding: "0.75rem 1.5rem",
-                        backgroundColor: loading ? "#9ca3af" : "#4285F4",
+                        backgroundColor: loading ? "#9ca3af" : "#DB4437",
                         color: "white",
                         border: "none",
                         borderRadius: "6px",
