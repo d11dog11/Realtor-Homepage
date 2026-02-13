@@ -8,13 +8,64 @@ datasource db {
 }
 
 model Contact {
+  id              Int      @id @default(autoincrement())
+  firstName       String
+  lastName        String
+  phone           String
+  email           String
+  status          String   @default("New") // New, Contacted, Closed, FollowUp
+  birthdate       DateTime?
+  notes           String?
+  optedOut        Boolean  @default(false)
+  unsubscribeToken String? @unique
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+}
+
+model OAuthIntegration {
+  id           Int      @id @default(autoincrement())
+  provider     String   @unique
+  providerEmail String?
+  accessToken  String
+  refreshToken String
+  expiresAt    DateTime
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+}
+
+model EmailTemplate {
   id        Int      @id @default(autoincrement())
-  firstName String
-  lastName  String
-  phone     String
-  email     String
-  status    String   @default("New") // New, Contacted, Closed, FollowUp
-  notes     String?
+  name      String
+  subject   String
+  body      String // HTML or Text content
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+}
+
+model AdminSetting {
+  key       String   @id
+  value     String
+  updatedAt DateTime @updatedAt
+}
+
+model EmailCampaign {
+  id          Int      @id @default(autoincrement())
+  name        String
+  templateId  Int
+  scheduledFor DateTime?
+  status      String   @default("Draft") // Draft, Scheduled, Sending, Sent, Failed
+  recipientFilter String @default("all") // all, birthday, custom
+  sentCount   Int      @default(0)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model EmailLog {
+  id         Int      @id @default(autoincrement())
+  contactId  Int
+  campaignId Int?
+  subject    String
+  sentAt     DateTime @default(now())
+  success    Boolean
+  errorMessage String?
 }

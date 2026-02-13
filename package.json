@@ -10,10 +10,16 @@
   },
   "dependencies": {
     "@prisma/client": "^5.22.0",
+    "@types/nodemailer": "^7.0.9",
+    "@types/uuid": "^10.0.0",
+    "axios": "^1.13.5",
     "next": "16.1.6",
+    "nodemailer": "^8.0.1",
     "prisma": "^5.22.0",
     "react": "19.2.3",
-    "react-dom": "19.2.3"
+    "react-dom": "19.2.3",
+    "uuid": "^13.0.0",
+    "value": "^0.3.3"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",

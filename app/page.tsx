@@ -1,12 +1,17 @@
-import ContactForm from "./components/ContactForm";
+"use client";
+
+import { useState } from "react";
 import Image from "next/image";
+import ContactFormComponent from "./components/ContactForm";
 
 export default function Home() {
+  // Admin login is now handled on the admin page itself
+
   return (
     <main>
       <header className="header">
         <div className="container nav-container">
-          <div className="logo">Michigan Realty</div>
+          <div className="logo">Realty Michigan</div>
           <nav className="nav-links">
             <a href="#about" className="nav-link">About</a>
             <a href="#contact" className="nav-link">Contact</a>
@@ -37,21 +42,35 @@ export default function Home() {
       </section>
 
       <section id="contact" className="contact-section">
-        <div className="container">
+        <div className="container" id="contact-container">
           <div className="contact-card">
             <h2 className="text-center mb-8">Request a Callback</h2>
             <p className="text-center mb-4" style={{ color: 'var(--color-text-light)' }}>
               Fill out the form below and I will get back to you shortly.
             </p>
-            <ContactForm />
+            {/* We'll import and use the ContactForm component dynamically or just rewrite it here if easy, 
+                but better to keep using the existing component. 
+                However, since this is now a client component (due to useState), we need to ensure ContactForm is compatible.
+                ContactForm has "use client" so it's fine.
+            */}
+            <ContactFormComponent />
           </div>
         </div>
       </section>
 
-
       <footer className="container text-center" style={{ padding: '3rem 0', color: '#6b7280', fontSize: '0.9rem' }}>
         <p>&copy; {new Date().getFullYear()} Drew Wodarski. All rights reserved.</p>
+        <div style={{ marginTop: '1rem' }}>
+          <a
+            href="/admin"
+            style={{ color: '#9ca3af', fontSize: '0.8rem', cursor: 'pointer', textDecoration: 'underline' }}
+          >
+            Admin
+          </a>
+        </div>
       </footer>
     </main >
   );
 }
+
+

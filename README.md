@@ -1,4 +1,4 @@
-# Michigan Realty Homepage
+# Realty Michigan Homepage
 
 Professional realtor homepage for Drew Wodarski, built with Next.js.
 
@@ -45,6 +45,19 @@ This project uses a local SQLite database to store contacts.
 ## Admin Console
 
 Access the admin console at `/admin` to view submitted contacts.
+
+**Access**: There is a hidden "Admin" link at the very bottom of the main page footer. Click it and enter the password `1234` to access the console.
+
+## Yahoo Integration (Email & Contacts)
+
+1.  **Register an App**: Create an app on the [Yahoo Developer Network](https://developer.yahoo.com/apps/) with Redirect URI: `http://localhost:3001/api/auth/yahoo/callback`.
+2.  **Environment Variables**: Create a `.env.local` file with:
+    ```
+    YAHOO_CLIENT_ID=your_client_id
+    YAHOO_CLIENT_SECRET=your_client_secret
+    NEXT_PUBLIC_APP_URL=http://localhost:3001
+    ```
+3.  **Connect**: Use the "Connect Yahoo Mail" button in the Admin console to enable email sending and contact imports.
 
 ## Customization
 

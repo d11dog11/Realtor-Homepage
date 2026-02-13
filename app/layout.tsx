@@ -9,7 +9,7 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  title: "Michigan Realty | Your Dream Home Awaits",
+  title: "Realty Michigan | Your Dream Home Awaits",
   description: "Professional Realtor helping you find your perfect home.",
 };
 
