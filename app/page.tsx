@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import React from "react";
 import Image from "next/image";
 import ContactFormComponent from "./components/ContactForm";
 
@@ -14,6 +14,7 @@ export default function Home() {
           <div className="logo">Realty Michigan</div>
           <nav className="nav-links">
             <a href="#about" className="nav-link">About</a>
+            <a href="#listings" className="nav-link">Listings</a>
             <a href="#contact" className="nav-link">Contact</a>
           </nav>
         </div>
@@ -55,6 +56,29 @@ export default function Home() {
             */}
             <ContactFormComponent />
           </div>
+        </div>
+      </section>
+
+      <section id="listings" className="container" style={{ marginBottom: '4rem' }}>
+        <div style={{
+          background: 'white',
+          padding: '1.5rem',
+          borderRadius: '1rem',
+          boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)',
+          overflow: 'hidden'
+        }}>
+          <h2 className="text-center mb-8">Current Listings</h2>
+          <iframe
+            src="https://link.flexmls.com/1z56325dywzs,18"
+            title="Flexmls Property Listings"
+            style={{
+              width: '100%',
+              height: '800px',
+              border: 'none',
+              borderRadius: '0.5rem'
+            }}
+            loading="lazy"
+          ></iframe>
         </div>
       </section>
 
