@@ -22,8 +22,17 @@ export default function AdminSidebar() {
     ];
 
     return (
-        <aside style={{ width: "250px", background: "#f8fafc", padding: "2rem", borderRight: "1px solid #e5e7eb", height: "100%", display: "flex", flexDirection: "column" }}>
-            <h2 style={{ fontSize: "1.25rem", fontWeight: "bold", color: "#064e3b", marginBottom: "3rem" }}>Admin Console</h2>
+        <aside style={{
+            width: "250px",
+            background: "#011c16",
+            padding: "2rem",
+            borderRight: "1px solid #064e3b",
+            height: "100%",
+            display: "flex",
+            flexDirection: "column",
+            boxShadow: "4px 0 10px rgba(0,0,0,0.3)"
+        }}>
+            <h2 style={{ fontSize: "1.25rem", fontWeight: "700", color: "#10b981", marginBottom: "3rem", letterSpacing: "-0.025em" }}>Admin Console</h2>
 
             <nav style={{ display: "flex", flexDirection: "column", gap: "0.5rem" }}>
                 {links.map(link => {
@@ -35,12 +44,13 @@ export default function AdminSidebar() {
                                 style={{
                                     display: "block",
                                     padding: "0.75rem 1rem",
-                                    borderRadius: "0.375rem",
+                                    borderRadius: "0.5rem",
                                     textDecoration: "none",
-                                    fontWeight: "500",
-                                    color: isActive ? "#2563eb" : "#4b5563",
-                                    background: isActive ? "#eff6ff" : "transparent",
-                                    transition: "all 0.2s"
+                                    fontWeight: "600",
+                                    color: isActive ? "#022c22" : "#d1fae5",
+                                    background: isActive ? "#10b981" : "transparent",
+                                    transition: "all 0.2s",
+                                    boxShadow: isActive ? "0 4px 12px rgba(16, 185, 129, 0.3)" : "none"
                                 }}
                             >
                                 {link.label}
@@ -54,14 +64,13 @@ export default function AdminSidebar() {
                                             href={sub.href}
                                             style={{
                                                 fontSize: "0.875rem",
-                                                color: "#6b7280",
+                                                color: "#10b981",
                                                 textDecoration: "none",
                                                 padding: "0.25rem 0.5rem",
                                                 borderRadius: "0.25rem",
-                                                transition: "all 0.2s"
+                                                transition: "all 0.2s",
+                                                opacity: "0.9"
                                             }}
-                                            onMouseEnter={(e) => (e.currentTarget.style.color = "#2563eb")}
-                                            onMouseLeave={(e) => (e.currentTarget.style.color = "#6b7280")}
                                         >
                                             • {sub.label}
                                         </Link>
@@ -73,9 +82,9 @@ export default function AdminSidebar() {
                 })}
             </nav>
 
-            <div style={{ marginTop: "auto", borderTop: "1px solid #e5e7eb", paddingTop: "1rem" }}>
-                <Link href="/" style={{ display: "block", padding: "0.5rem 0", color: "#6b7280", textDecoration: "none", fontSize: "0.875rem" }}>
-                    &larr; Back to Website
+            <div style={{ marginTop: "auto", borderTop: "1px solid #064e3b", paddingTop: "1.5rem" }}>
+                <Link href="/" style={{ display: "block", padding: "0.5rem 0", color: "#d1fae5", textDecoration: "none", fontSize: "0.875rem", opacity: "0.7" }}>
+                    &larr; Exit Console
                 </Link>
             </div>
         </aside>

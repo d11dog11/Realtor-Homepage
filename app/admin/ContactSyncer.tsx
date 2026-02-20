@@ -70,18 +70,18 @@ export default function ContactSyncer() {
     };
 
     return (
-        <div style={{ padding: "1.5rem", border: "1px solid #e5e7eb", borderRadius: "8px", backgroundColor: "#fff", height: "100%" }}>
-            <h3 style={{ fontSize: "1.25rem", fontWeight: "600", marginBottom: "1rem", color: "#064e3b", display: "flex", alignItems: "center", gap: "0.5rem" }}>
+        <div style={{ padding: "2rem", border: "1px solid rgba(16, 185, 129, 0.2)", borderRadius: "1rem", backgroundColor: "#064e3b", height: "100%", boxShadow: "0 10px 15px -3px rgba(0, 0, 0, 0.4)" }}>
+            <h3 style={{ fontSize: "1.25rem", fontWeight: "700", marginBottom: "1rem", color: "#10b981", display: "flex", alignItems: "center", gap: "0.75rem" }}>
                 <span>🔄</span> Sync Contacts
             </h3>
 
-            <p style={{ fontSize: "0.875rem", color: "#6b7280", marginBottom: "1.5rem" }}>
+            <p style={{ fontSize: "0.875rem", color: "#d1fae5", marginBottom: "1.5rem", opacity: "0.8" }}>
                 Push your local contacts to your connected email providers. Duplicate emails will be skipped.
             </p>
 
-            <div style={{ padding: "1rem", backgroundColor: "#f9fafb", borderRadius: "6px", marginBottom: "1.5rem", border: "1px solid #e5e7eb" }}>
-                <label style={{ display: "flex", alignItems: "center", cursor: "pointer", gap: "0.75rem" }}>
-                    <div style={{ position: "relative", width: "36px", height: "20px" }}>
+            <div style={{ padding: "1.25rem", backgroundColor: "rgba(0, 0, 0, 0.2)", borderRadius: "0.75rem", marginBottom: "1.5rem", border: "1px solid rgba(16, 185, 129, 0.1)" }}>
+                <label style={{ display: "flex", alignItems: "center", cursor: "pointer", gap: "1rem" }}>
+                    <div style={{ position: "relative", width: "40px", height: "22px" }}>
                         <input
                             type="checkbox"
                             checked={autoSync}
@@ -90,17 +90,19 @@ export default function ContactSyncer() {
                         />
                         <span style={{
                             position: "absolute", top: 0, left: 0, right: 0, bottom: 0,
-                            backgroundColor: autoSync ? "#2563eb" : "#ccc",
-                            borderRadius: "20px", transition: "0.3s"
+                            backgroundColor: autoSync ? "#10b981" : "#011c16",
+                            borderRadius: "20px", transition: "0.3s",
+                            border: "1px solid rgba(16, 185, 129, 0.2)"
                         }}></span>
                         <span style={{
                             position: "absolute", content: '""', height: "16px", width: "16px",
-                            left: autoSync ? "18px" : "2px", bottom: "2px",
-                            backgroundColor: "white", borderRadius: "50%", transition: "0.3s"
+                            left: autoSync ? "21px" : "3px", bottom: "3px",
+                            backgroundColor: "white", borderRadius: "50%", transition: "0.3s",
+                            boxShadow: "0 2px 4px rgba(0,0,0,0.2)"
                         }}></span>
                     </div>
-                    <span style={{ fontSize: "0.875rem", fontWeight: "600", color: "#374151" }}>
-                        Automatically sync new contacts when created
+                    <span style={{ fontSize: "0.875rem", fontWeight: "600", color: "#f0fdf4" }}>
+                        Auto-sync new contacts
                     </span>
                 </label>
             </div>
@@ -115,31 +117,34 @@ export default function ContactSyncer() {
                             display: "flex",
                             alignItems: "center",
                             gap: "0.5rem",
-                            padding: "0.5rem 1rem",
-                            backgroundColor: syncing ? "#9ca3af" : p.color,
+                            padding: "0.75rem 1rem",
+                            backgroundColor: syncing ? "rgba(156, 163, 175, 0.2)" : p.color,
                             color: "white",
                             border: "none",
-                            borderRadius: "6px",
+                            borderRadius: "0.5rem",
                             cursor: syncing ? "not-allowed" : "pointer",
-                            fontSize: "0.875rem",
-                            fontWeight: "500",
-                            transition: "all 0.2s"
+                            fontSize: "0.75rem",
+                            fontWeight: "700",
+                            transition: "all 0.2s",
+                            textTransform: "uppercase",
+                            letterSpacing: "0.025em"
                         }}
                     >
-                        {syncing === p.id ? "Syncing..." : p.name}
+                        {syncing === p.id ? "Syncing..." : p.id}
                     </button>
                 ))}
             </div>
 
             {message && (
                 <div style={{
-                    marginTop: "1rem",
-                    padding: "0.75rem",
-                    borderRadius: "6px",
-                    backgroundColor: message.includes("Error") ? "#fef2f2" : "#f0fdf4",
-                    color: message.includes("Error") ? "#991b1b" : "#166534",
-                    border: `1px solid ${message.includes("Error") ? "#fecaca" : "#bbf7d0"}`,
-                    fontSize: "0.875rem"
+                    marginTop: "1.5rem",
+                    padding: "1rem",
+                    borderRadius: "0.75rem",
+                    backgroundColor: message.includes("Error") ? "rgba(239, 68, 68, 0.1)" : "rgba(16, 185, 129, 0.1)",
+                    color: message.includes("Error") ? "#ef4444" : "#10b981",
+                    border: `1px solid ${message.includes("Error") ? "rgba(239, 68, 68, 0.2)" : "rgba(16, 185, 129, 0.2)"}`,
+                    fontSize: "0.875rem",
+                    fontWeight: "600"
                 }}>
                     {message}
                 </div>

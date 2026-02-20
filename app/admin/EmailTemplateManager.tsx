@@ -182,50 +182,50 @@ export default function EmailTemplateManager({ title }: { title?: string }) {
 
     return (
         <div>
-            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "2rem" }}>
+            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "3rem" }}>
                 {title ? (
-                    <h1 style={{ fontSize: "1.875rem", fontWeight: "bold", color: "#064e3b", margin: 0 }}>{title}</h1>
+                    <h1 style={{ fontSize: "2rem", fontWeight: "700", color: "#f0fdf4", margin: 0, letterSpacing: "-0.025em" }}>{title}</h1>
                 ) : <div />}
 
                 {!isEditing && (
                     <button
                         onClick={() => setIsEditing(true)}
                         className="btn btn-primary"
-                        style={{ fontSize: "0.875rem", padding: "0.5rem 1rem" }}
+                        style={{ fontSize: "0.875rem", padding: "0.75rem 1.5rem" }}
                     >
                         + Create Template
                     </button>
                 )}
             </div>
 
-            <div style={{ background: "white", padding: "1.5rem", borderRadius: "0.5rem", boxShadow: "0 1px 3px rgba(0,0,0,0.1)" }}>
+            <div style={{ background: "#064e3b", padding: "2rem", borderRadius: "1rem", boxShadow: "0 10px 15px -3px rgba(0, 0, 0, 0.4)", border: "1px solid rgba(16, 185, 129, 0.2)" }}>
 
                 {isEditing ? (
-                    <form onSubmit={handleSubmit} style={{ border: "1px solid #e5e7eb", padding: "1rem", borderRadius: "0.5rem" }}>
-                        <div className="form-group">
-                            <label className="label">Template Name</label>
+                    <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: "1.5rem" }}>
+                        <div>
+                            <label style={{ display: "block", fontSize: "0.875rem", fontWeight: "600", color: "#d1fae5", marginBottom: "0.5rem" }}>Template Name</label>
                             <input
-                                className="input"
+                                style={{ width: "100%", padding: "0.75rem", background: "rgba(0, 0, 0, 0.2)", border: "1px solid rgba(16, 185, 129, 0.3)", borderRadius: "0.5rem", color: "#ffffff", outline: "none" }}
                                 value={formData.name}
                                 onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                                 required
                                 placeholder="e.g. Welcome Email"
                             />
                         </div>
-                        <div className="form-group">
-                            <label className="label">Subject Line</label>
+                        <div>
+                            <label style={{ display: "block", fontSize: "0.875rem", fontWeight: "600", color: "#d1fae5", marginBottom: "0.5rem" }}>Subject Line</label>
                             <input
-                                className="input"
+                                style={{ width: "100%", padding: "0.75rem", background: "rgba(0, 0, 0, 0.2)", border: "1px solid rgba(16, 185, 129, 0.3)", borderRadius: "0.5rem", color: "#ffffff", outline: "none" }}
                                 value={formData.subject}
                                 onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
                                 required
                                 placeholder="e.g. Welcome {{firstName}}!"
                             />
                         </div>
-                        <div className="form-group">
-                            <label className="label">Email Body (HTML supported)</label>
-                            <div style={{ marginBottom: "0.5rem", display: "flex", flexWrap: "wrap", gap: "0.5rem", alignItems: "center" }}>
-                                <span style={{ fontSize: "0.875rem", color: "#6b7280" }}>Insert Variable:</span>
+                        <div>
+                            <label style={{ display: "block", fontSize: "0.875rem", fontWeight: "600", color: "#d1fae5", marginBottom: "0.75rem" }}>Email Body (HTML supported)</label>
+                            <div style={{ marginBottom: "1rem", display: "flex", flexWrap: "wrap", gap: "0.75rem", alignItems: "center" }}>
+                                <span style={{ fontSize: "0.75rem", color: "#d1fae5", fontWeight: "600", textTransform: "uppercase", opacity: "0.7" }}>Insert:</span>
                                 {["firstName", "lastName", "email", "phone"].map(v => (
                                     <button
                                         key={v}
@@ -233,33 +233,35 @@ export default function EmailTemplateManager({ title }: { title?: string }) {
                                         onClick={() => insertVariable(v)}
                                         style={{
                                             fontSize: "0.75rem",
-                                            padding: "0.25rem 0.5rem",
-                                            background: "#e0e7ff",
-                                            color: "#3730a3",
-                                            border: "none",
-                                            borderRadius: "4px",
-                                            cursor: "pointer"
+                                            padding: "0.375rem 0.75rem",
+                                            background: "rgba(16, 185, 129, 0.2)",
+                                            color: "#34d399",
+                                            border: "1px solid rgba(16, 185, 129, 0.3)",
+                                            borderRadius: "0.5rem",
+                                            cursor: "pointer",
+                                            fontWeight: "700"
                                         }}
                                     >
                                         {v}
                                     </button>
                                 ))}
 
-                                <div style={{ marginLeft: "auto", display: "flex", gap: "0.5rem", alignItems: "center" }}>
+                                <div style={{ marginLeft: "auto", display: "flex", gap: "0.75rem", alignItems: "center" }}>
                                     <label
                                         htmlFor="image-upload"
                                         style={{
                                             fontSize: "0.75rem",
-                                            padding: "0.25rem 0.75rem",
-                                            background: uploadingImage ? "#d1d5db" : "#34d399",
-                                            color: "white",
+                                            padding: "0.375rem 1rem",
+                                            background: uploadingImage ? "rgba(156, 163, 175, 0.2)" : "#10b981",
+                                            color: uploadingImage ? "#9ca3af" : "#022c22",
                                             border: "none",
-                                            borderRadius: "4px",
+                                            borderRadius: "0.5rem",
                                             cursor: uploadingImage ? "not-allowed" : "pointer",
-                                            display: "inline-block"
+                                            display: "inline-block",
+                                            fontWeight: "700"
                                         }}
                                     >
-                                        {uploadingImage ? "Uploading..." : "📷 Add Image"}
+                                        {uploadingImage ? "Uploading..." : "📷 Image"}
                                     </label>
                                     <input
                                         id="image-upload"
@@ -274,16 +276,17 @@ export default function EmailTemplateManager({ title }: { title?: string }) {
                                         htmlFor="pdf-upload"
                                         style={{
                                             fontSize: "0.75rem",
-                                            padding: "0.25rem 0.75rem",
-                                            background: uploadingPdf ? "#d1d5db" : "#f59e0b",
-                                            color: "white",
+                                            padding: "0.375rem 1rem",
+                                            background: uploadingPdf ? "rgba(156, 163, 175, 0.2)" : "#f59e0b",
+                                            color: uploadingPdf ? "#9ca3af" : "#ffffff",
                                             border: "none",
-                                            borderRadius: "4px",
+                                            borderRadius: "0.5rem",
                                             cursor: uploadingPdf ? "not-allowed" : "pointer",
-                                            display: "inline-block"
+                                            display: "inline-block",
+                                            fontWeight: "700"
                                         }}
                                     >
-                                        {uploadingPdf ? "Uploading..." : "📄 Add PDF"}
+                                        {uploadingPdf ? "Uploading..." : "📄 PDF"}
                                     </label>
                                     <input
                                         id="pdf-upload"
@@ -296,26 +299,25 @@ export default function EmailTemplateManager({ title }: { title?: string }) {
                                 </div>
                             </div>
                             <textarea
-                                className="input"
+                                style={{ width: "100%", padding: "1rem", background: "rgba(0, 0, 0, 0.2)", border: "1px solid rgba(16, 185, 129, 0.3)", borderRadius: "0.5rem", color: "#ffffff", outline: "none", fontFamily: "monospace", fontSize: "0.875rem", resize: "vertical" }}
                                 value={formData.body}
                                 onChange={(e) => setFormData({ ...formData, body: e.target.value })}
                                 required
-                                rows={10}
+                                rows={12}
                                 placeholder="Hello {{firstName}}, ..."
-                                style={{ fontFamily: "monospace" }}
                             />
-                            <p style={{ fontSize: "0.75rem", color: "#6b7280", marginTop: "0.5rem" }}>
+                            <p style={{ fontSize: "0.75rem", color: "#d1fae5", marginTop: "1rem", opacity: "0.6" }}>
                                 Tip: Use HTML for formatting. Images will be embedded. PDFs will appear as download links.
                             </p>
                         </div>
 
-                        {error && <p style={{ color: "red", marginBottom: "1rem" }}>{error}</p>}
+                        {error && <p style={{ color: "#ef4444", fontSize: "0.875rem", fontWeight: "600" }}>{error}</p>}
 
-                        <div style={{ display: "flex", gap: "1rem" }}>
-                            <button type="submit" className="btn btn-primary" disabled={loading}>
+                        <div style={{ display: "flex", gap: "1rem", marginTop: "1rem" }}>
+                            <button type="submit" className="btn btn-primary" disabled={loading} style={{ padding: "0.75rem 1.5rem", fontWeight: "700" }}>
                                 {loading ? "Saving..." : "Save Template"}
                             </button>
-                            <button type="button" onClick={handleCancel} className="btn btn-secondary" style={{ background: "#f3f4f6", color: "#374151" }}>
+                            <button type="button" onClick={handleCancel} style={{ padding: "0.75rem 1.5rem", border: "1px solid rgba(16, 185, 129, 0.3)", background: "transparent", color: "#d1fae5", borderRadius: "0.5rem", cursor: "pointer", fontWeight: "600" }}>
                                 Cancel
                             </button>
                         </div>
@@ -323,25 +325,25 @@ export default function EmailTemplateManager({ title }: { title?: string }) {
                 ) : (
                     <div>
                         {templates.length === 0 ? (
-                            <p style={{ color: "#6b7280", fontStyle: "italic" }}>No templates yet.</p>
+                            <p style={{ color: "#d1fae5", fontStyle: "italic", opacity: "0.7" }}>No templates yet.</p>
                         ) : (
                             <div style={{ display: "grid", gap: "1rem" }}>
                                 {templates.map(t => (
-                                    <div key={t.id} style={{ border: "1px solid #e5e7eb", padding: "1rem", borderRadius: "0.5rem", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+                                    <div key={t.id} style={{ border: "1px solid rgba(16, 185, 129, 0.2)", padding: "1.5rem", borderRadius: "0.875rem", display: "flex", justifyContent: "space-between", alignItems: "center", background: "rgba(0, 0, 0, 0.1)" }}>
                                         <div>
-                                            <h4 style={{ fontWeight: "bold", fontSize: "1rem", color: "#1f2937" }}>{t.name}</h4>
-                                            <p style={{ color: "#4b5563", fontSize: "0.875rem" }}>Subject: {t.subject}</p>
+                                            <h4 style={{ fontWeight: "700", fontSize: "1.125rem", color: "#f0fdf4", margin: "0 0 0.25rem 0" }}>{t.name}</h4>
+                                            <p style={{ color: "#d1fae5", fontSize: "0.875rem", margin: 0, opacity: "0.8" }}>Subject: {t.subject}</p>
                                         </div>
-                                        <div style={{ display: "flex", gap: "0.5rem" }}>
+                                        <div style={{ display: "flex", gap: "1rem" }}>
                                             <button
                                                 onClick={() => handleEdit(t)}
-                                                style={{ color: "#2563eb", background: "none", border: "none", cursor: "pointer", fontWeight: "500", fontSize: "0.875rem" }}
+                                                style={{ color: "#34d399", background: "none", border: "none", cursor: "pointer", fontWeight: "700", fontSize: "0.875rem" }}
                                             >
                                                 Edit
                                             </button>
                                             <button
                                                 onClick={() => handleDelete(t.id)}
-                                                style={{ color: "#dc2626", background: "none", border: "none", cursor: "pointer", fontWeight: "500", fontSize: "0.875rem" }}
+                                                style={{ color: "#ef4444", background: "none", border: "none", cursor: "pointer", fontWeight: "700", fontSize: "0.875rem" }}
                                             >
                                                 Delete
                                             </button>

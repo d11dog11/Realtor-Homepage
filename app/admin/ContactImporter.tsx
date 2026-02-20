@@ -37,12 +37,12 @@ export default function ContactImporter() {
     };
 
     return (
-        <div style={{ padding: "1.5rem", backgroundColor: "#f9fafb", borderRadius: "8px", border: "1px solid #e5e7eb", height: "100%" }}>
-            <h3 style={{ fontSize: "1.25rem", fontWeight: "600", marginTop: 0, marginBottom: "1rem" }}>
+        <div style={{ padding: "2rem", backgroundColor: "#064e3b", borderRadius: "1rem", border: "1px solid rgba(16, 185, 129, 0.2)", height: "100%", boxShadow: "0 10px 15px -3px rgba(0, 0, 0, 0.4)" }}>
+            <h3 style={{ fontSize: "1.25rem", fontWeight: "700", marginTop: 0, marginBottom: "1rem", color: "#f0fdf4" }}>
                 📇 Import Contacts
             </h3>
 
-            <p style={{ fontSize: "0.875rem", color: "#6b7280", marginBottom: "1rem" }}>
+            <p style={{ fontSize: "0.875rem", color: "#d1fae5", marginBottom: "1.5rem", opacity: "0.8" }}>
                 Import contacts from your connected email providers into your CRM.
             </p>
 
@@ -51,86 +51,92 @@ export default function ContactImporter() {
                     onClick={() => handleImport("google")}
                     disabled={loading}
                     style={{
-                        padding: "0.75rem 1.5rem",
-                        backgroundColor: loading ? "#9ca3af" : "#DB4437",
+                        padding: "0.75rem 1.25rem",
+                        backgroundColor: loading ? "rgba(156, 163, 175, 0.2)" : "#DB4437",
                         color: "white",
                         border: "none",
-                        borderRadius: "6px",
+                        borderRadius: "0.5rem",
                         cursor: loading ? "not-allowed" : "pointer",
-                        fontWeight: "500",
-                        fontSize: "0.875rem",
+                        fontWeight: "700",
+                        fontSize: "0.75rem",
+                        textTransform: "uppercase",
+                        letterSpacing: "0.025em"
                     }}
                 >
-                    {loading ? "Importing..." : "Import from Gmail"}
+                    {loading ? "Importing..." : "Gmail"}
                 </button>
 
                 <button
                     onClick={() => handleImport("microsoft")}
                     disabled={loading}
                     style={{
-                        padding: "0.75rem 1.5rem",
-                        backgroundColor: loading ? "#9ca3af" : "#0078D4",
+                        padding: "0.75rem 1.25rem",
+                        backgroundColor: loading ? "rgba(156, 163, 175, 0.2)" : "#0078D4",
                         color: "white",
                         border: "none",
-                        borderRadius: "6px",
+                        borderRadius: "0.5rem",
                         cursor: loading ? "not-allowed" : "pointer",
-                        fontWeight: "500",
-                        fontSize: "0.875rem",
+                        fontWeight: "700",
+                        fontSize: "0.75rem",
+                        textTransform: "uppercase",
+                        letterSpacing: "0.025em"
                     }}
                 >
-                    {loading ? "Importing..." : "Import from Outlook"}
+                    {loading ? "Importing..." : "Outlook"}
                 </button>
 
                 <button
                     onClick={() => handleImport("yahoo")}
                     disabled={loading}
                     style={{
-                        padding: "0.75rem 1.5rem",
-                        backgroundColor: loading ? "#9ca3af" : "#6001D2",
+                        padding: "0.75rem 1.25rem",
+                        backgroundColor: loading ? "rgba(156, 163, 175, 0.2)" : "#6001D2",
                         color: "white",
                         border: "none",
-                        borderRadius: "6px",
+                        borderRadius: "0.5rem",
                         cursor: loading ? "not-allowed" : "pointer",
-                        fontWeight: "500",
-                        fontSize: "0.875rem",
+                        fontWeight: "700",
+                        fontSize: "0.75rem",
+                        textTransform: "uppercase",
+                        letterSpacing: "0.025em"
                     }}
                 >
-                    {loading ? "Importing..." : "Import from Yahoo"}
+                    {loading ? "Importing..." : "Yahoo"}
                 </button>
             </div>
 
             {result && (
                 <div style={{
-                    marginTop: "1rem",
-                    padding: "1rem",
-                    backgroundColor: "#d1fae5",
-                    borderRadius: "6px",
-                    border: "1px solid #6ee7b7"
+                    marginTop: "1.5rem",
+                    padding: "1.25rem",
+                    backgroundColor: "rgba(16, 185, 129, 0.1)",
+                    borderRadius: "0.75rem",
+                    border: "1px solid rgba(16, 185, 129, 0.2)"
                 }}>
-                    <p style={{ margin: 0, fontSize: "0.875rem", fontWeight: "600", color: "#065f46" }}>
+                    <p style={{ margin: 0, fontSize: "0.875rem", fontWeight: "700", color: "#10b981" }}>
                         ✅ {result.message}
                     </p>
-                    <ul style={{ margin: "0.5rem 0 0 0", paddingLeft: "1.5rem", fontSize: "0.875rem", color: "#047857" }}>
-                        <li>New contacts imported: {result.imported}</li>
-                        <li>Existing contacts updated: {result.updated}</li>
-                        <li>Skipped (duplicates): {result.skipped}</li>
-                        <li>Total processed: {result.total}</li>
+                    <ul style={{ margin: "0.75rem 0 0 0", paddingLeft: "1.25rem", fontSize: "0.875rem", color: "#d1fae5", lineHeight: "1.6" }}>
+                        <li>New contacts imported: <span style={{ fontWeight: "700", color: "#f0fdf4" }}>{result.imported}</span></li>
+                        <li>Existing contacts updated: <span style={{ fontWeight: "700", color: "#f0fdf4" }}>{result.updated}</span></li>
+                        <li>Skipped (duplicates): <span style={{ fontWeight: "700", color: "#f0fdf4" }}>{result.skipped}</span></li>
+                        <li>Total processed: <span style={{ fontWeight: "700", color: "#f0fdf4" }}>{result.total}</span></li>
                     </ul>
                 </div>
             )}
 
             {error && (
                 <div style={{
-                    marginTop: "1rem",
-                    padding: "1rem",
-                    backgroundColor: "#fee2e2",
-                    borderRadius: "6px",
-                    border: "1px solid #fca5a5"
+                    marginTop: "1.5rem",
+                    padding: "1.25rem",
+                    backgroundColor: "rgba(239, 68, 68, 0.1)",
+                    borderRadius: "0.75rem",
+                    border: "1px solid rgba(239, 68, 68, 0.2)"
                 }}>
-                    <p style={{ margin: 0, fontSize: "0.875rem", fontWeight: "600", color: "#991b1b" }}>
+                    <p style={{ margin: 0, fontSize: "0.875rem", fontWeight: "700", color: "#ef4444" }}>
                         ❌ Error: {error}
                     </p>
-                    <p style={{ margin: "0.5rem 0 0 0", fontSize: "0.75rem", color: "#b91c1c" }}>
+                    <p style={{ margin: "0.5rem 0 0 0", fontSize: "0.75rem", color: "#d1fae5", opacity: "0.7" }}>
                         Make sure the provider is connected in the Integrations section.
                     </p>
                 </div>

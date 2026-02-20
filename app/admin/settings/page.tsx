@@ -47,60 +47,62 @@ export default function SettingsPage() {
     };
 
     return (
-        <div style={{ padding: "2rem" }}>
-            <h1 style={{ fontSize: "1.875rem", fontWeight: "bold", color: "#064e3b", marginBottom: "2rem" }}>Settings</h1>
+        <div style={{ padding: "0" }}>
+            <h1 style={{ fontSize: "2rem", fontWeight: "700", color: "#f0fdf4", marginBottom: "3rem", letterSpacing: "-0.025em" }}>Settings</h1>
 
-            <div style={{ display: "grid", gap: "2rem" }}>
+            <div style={{ display: "grid", gap: "4rem" }}>
                 {/* Security Section */}
                 <section id="security">
-                    <h2 style={{ fontSize: "1.5rem", fontWeight: "600", marginBottom: "1.5rem", color: "#064e3b", borderBottom: "2px solid #e5e7eb", paddingBottom: "0.5rem" }}>
+                    <h2 style={{ fontSize: "1.5rem", fontWeight: "700", marginBottom: "1.5rem", color: "#10b981", borderBottom: "1px solid #064e3b", paddingBottom: "1rem" }}>
                         Security
                     </h2>
-                    <div style={{ background: "white", padding: "1.5rem", borderRadius: "0.5rem", boxShadow: "0 1px 3px rgba(0,0,0,0.1)", maxWidth: "500px" }}>
-                        <h3 style={{ fontSize: "1.25rem", fontWeight: "600", marginBottom: "1.5rem", color: "#374151" }}>Change Admin Password</h3>
+                    <div style={{ background: "#064e3b", padding: "2.5rem", borderRadius: "1rem", boxShadow: "0 10px 15px -3px rgba(0, 0, 0, 0.4)", maxWidth: "550px", border: "1px solid rgba(16, 185, 129, 0.2)" }}>
+                        <h3 style={{ fontSize: "1.25rem", fontWeight: "600", marginBottom: "2rem", color: "#f0fdf4" }}>Change Admin Password</h3>
 
                         <form onSubmit={handlePasswordChange}>
-                            <div style={{ marginBottom: "1rem" }}>
-                                <label style={{ display: "block", marginBottom: "0.5rem", fontSize: "0.875rem", fontWeight: "500", color: "#4b5563" }}>Current Password</label>
+                            <div style={{ marginBottom: "1.25rem" }}>
+                                <label style={{ display: "block", marginBottom: "0.5rem", fontSize: "0.875rem", fontWeight: "600", color: "#d1fae5" }}>Current Password</label>
                                 <input
                                     type="password"
                                     required
                                     value={oldPassword}
                                     onChange={(e) => setOldPassword(e.target.value)}
-                                    style={{ width: "100%", padding: "0.5rem", border: "1px solid #d1d5db", borderRadius: "0.375rem" }}
+                                    style={{ width: "100%", padding: "0.75rem", background: "rgba(0, 0, 0, 0.2)", border: "1px solid rgba(16, 185, 129, 0.3)", borderRadius: "0.5rem", color: "#ffffff", outline: "none" }}
                                 />
                             </div>
 
-                            <div style={{ marginBottom: "1rem" }}>
-                                <label style={{ display: "block", marginBottom: "0.5rem", fontSize: "0.875rem", fontWeight: "500", color: "#4b5563" }}>New Password</label>
+                            <div style={{ marginBottom: "1.25rem" }}>
+                                <label style={{ display: "block", marginBottom: "0.5rem", fontSize: "0.875rem", fontWeight: "600", color: "#d1fae5" }}>New Password</label>
                                 <input
                                     type="password"
                                     required
                                     value={newPassword}
                                     onChange={(e) => setNewPassword(e.target.value)}
-                                    style={{ width: "100%", padding: "0.5rem", border: "1px solid #d1d5db", borderRadius: "0.375rem" }}
+                                    style={{ width: "100%", padding: "0.75rem", background: "rgba(0, 0, 0, 0.2)", border: "1px solid rgba(16, 185, 129, 0.3)", borderRadius: "0.5rem", color: "#ffffff", outline: "none" }}
                                 />
                             </div>
 
-                            <div style={{ marginBottom: "1.5rem" }}>
-                                <label style={{ display: "block", marginBottom: "0.5rem", fontSize: "0.875rem", fontWeight: "500", color: "#4b5563" }}>Confirm New Password</label>
+                            <div style={{ marginBottom: "2rem" }}>
+                                <label style={{ display: "block", marginBottom: "0.5rem", fontSize: "0.875rem", fontWeight: "600", color: "#d1fae5" }}>Confirm New Password</label>
                                 <input
                                     type="password"
                                     required
                                     value={confirmPassword}
                                     onChange={(e) => setConfirmPassword(e.target.value)}
-                                    style={{ width: "100%", padding: "0.5rem", border: "1px solid #d1d5db", borderRadius: "0.375rem" }}
+                                    style={{ width: "100%", padding: "0.75rem", background: "rgba(0, 0, 0, 0.2)", border: "1px solid rgba(16, 185, 129, 0.3)", borderRadius: "0.5rem", color: "#ffffff", outline: "none" }}
                                 />
                             </div>
 
                             {message && (
                                 <div style={{
-                                    marginBottom: "1rem",
-                                    padding: "0.75rem",
-                                    borderRadius: "0.375rem",
+                                    marginBottom: "1.5rem",
+                                    padding: "1rem",
+                                    borderRadius: "0.5rem",
                                     fontSize: "0.875rem",
-                                    background: message.startsWith("Error") ? "#fee2e2" : "#dcfce7",
-                                    color: message.startsWith("Error") ? "#991b1b" : "#166534"
+                                    fontWeight: "600",
+                                    background: message.startsWith("Error") ? "rgba(239, 68, 68, 0.1)" : "rgba(16, 185, 129, 0.1)",
+                                    color: message.startsWith("Error") ? "#ef4444" : "#10b981",
+                                    border: message.startsWith("Error") ? "1px solid rgba(239, 68, 68, 0.2)" : "1px solid rgba(16, 185, 129, 0.2)"
                                 }}>
                                     {message}
                                 </div>
@@ -110,7 +112,7 @@ export default function SettingsPage() {
                                 type="submit"
                                 disabled={loading}
                                 className="btn btn-primary"
-                                style={{ width: "100%", padding: "0.75rem" }}
+                                style={{ width: "100%", padding: "0.875rem", fontWeight: "700" }}
                             >
                                 {loading ? "Updating..." : "Update Password"}
                             </button>
@@ -120,10 +122,10 @@ export default function SettingsPage() {
 
                 {/* Contacts Section */}
                 <section id="contacts">
-                    <h2 style={{ fontSize: "1.5rem", fontWeight: "600", marginBottom: "1.5rem", color: "#064e3b", borderBottom: "2px solid #e5e7eb", paddingBottom: "0.5rem" }}>
+                    <h2 style={{ fontSize: "1.5rem", fontWeight: "700", marginBottom: "1.5rem", color: "#10b981", borderBottom: "1px solid #064e3b", paddingBottom: "1rem" }}>
                         Contacts
                     </h2>
-                    <div style={{ display: "flex", gap: "2rem", flexWrap: "wrap" }}>
+                    <div style={{ display: "flex", gap: "3rem", flexWrap: "wrap" }}>
                         <div style={{ flex: "1 1 450px" }}>
                             <ContactImporter />
                         </div>

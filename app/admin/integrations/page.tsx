@@ -4,7 +4,7 @@ export const dynamic = 'force-dynamic';
 
 export default function IntegrationsPage() {
     return (
-        <div style={{ padding: "2rem" }}>
+        <div style={{ padding: "0" }}>
             <IntegrationsManager />
         </div>
     );

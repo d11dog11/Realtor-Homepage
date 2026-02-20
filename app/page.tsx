@@ -74,7 +74,11 @@ export default function Home() {
       <section id="contact" className="contact-section">
         <div className="container" id="contact-container">
           <div className="contact-card">
-            <h2 className="text-center mb-8">Request a Callback</h2>
+            <h2 className="text-center mb-8" style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "1rem", flexWrap: "nowrap", whiteSpace: "nowrap" }}>
+              <Image src="/phone-icon.png?v=3" alt="Phone" width={64} height={64} unoptimized style={{ objectFit: 'contain' }} />
+              Request a Callback
+              <Image src="/phone-icon.png?v=3" alt="Phone" width={64} height={64} unoptimized style={{ objectFit: 'contain' }} />
+            </h2>
             <p className="text-center mb-4" style={{ color: 'var(--color-text-light)' }}>
               Fill out the form below and I will get back to you shortly.
             </p>
@@ -97,7 +101,11 @@ export default function Home() {
           border: '1px solid var(--color-border)',
           overflow: 'hidden'
         }}>
-          <h2 className="text-center mb-8">Current Listings</h2>
+          <h2 className="text-center mb-8" style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "1.5rem", flexWrap: "nowrap", whiteSpace: "nowrap" }}>
+            <Image src="/home.png?v=2" alt="Home" width={64} height={64} unoptimized style={{ objectFit: 'contain' }} />
+            Current Listings
+            <Image src="/home.png?v=2" alt="Home" width={64} height={64} unoptimized style={{ objectFit: 'contain' }} />
+          </h2>
           <iframe
             src="https://link.flexmls.com/1z56325dywzs,18"
             title="Flexmls Property Listings"

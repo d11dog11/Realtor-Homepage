@@ -104,32 +104,32 @@ export default function EditContactModal({ contact, onClose }: EditContactModalP
     };
 
     return (
-        <div style={{ position: "fixed", top: 0, left: 0, right: 0, bottom: 0, background: "rgba(0,0,0,0.5)", display: "flex", justifyContent: "center", alignItems: "center", zIndex: 50 }}>
-            <div style={{ background: "white", padding: "1.5rem", borderRadius: "0.5rem", width: "100%", maxWidth: "500px", maxHeight: "90vh", overflowY: "auto" }}>
-                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "1rem" }}>
-                    <h3 style={{ fontSize: "1.25rem", fontWeight: "bold", color: "#1f2937" }}>Edit Contact</h3>
-                    <button onClick={onClose} style={{ background: "none", border: "none", fontSize: "1.5rem", cursor: "pointer" }}>&times;</button>
+        <div style={{ position: "fixed", top: 0, left: 0, right: 0, bottom: 0, background: "rgba(0,0,0,0.8)", backdropFilter: "blur(4px)", display: "flex", justifyContent: "center", alignItems: "center", zIndex: 100 }}>
+            <div style={{ background: "#064e3b", padding: "2.5rem", borderRadius: "1.25rem", width: "100%", maxWidth: "550px", maxHeight: "90vh", overflowY: "auto", border: "1px solid rgba(16, 185, 129, 0.2)", boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.5)" }}>
+                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "2rem" }}>
+                    <h3 style={{ fontSize: "1.5rem", fontWeight: "700", color: "#f0fdf4", margin: 0, letterSpacing: "-0.01em" }}>Edit Contact</h3>
+                    <button onClick={onClose} style={{ background: "rgba(0, 0, 0, 0.2)", border: "none", width: "2.5rem", height: "2.5rem", borderRadius: "50%", display: "flex", justifyContent: "center", alignItems: "center", fontSize: "1.25rem", cursor: "pointer", color: "#d1fae5", transition: "all 0.2s" }}>&times;</button>
                 </div>
 
-                <form onSubmit={handleSubmit}>
-                    <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1rem", marginBottom: "1rem" }}>
+                <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: "1.25rem" }}>
+                    <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1.25rem" }}>
                         <div>
-                            <label className="label">First Name</label>
-                            <input name="firstName" defaultValue={contact.firstName} required className="input" />
+                            <label style={{ display: "block", fontSize: "0.875rem", fontWeight: "600", color: "#d1fae5", marginBottom: "0.5rem" }}>First Name</label>
+                            <input name="firstName" defaultValue={contact.firstName} required style={{ width: "100%", padding: "0.75rem", background: "rgba(0, 0, 0, 0.2)", border: "1px solid rgba(16, 185, 129, 0.3)", borderRadius: "0.5rem", color: "#ffffff", outline: "none" }} />
                         </div>
                         <div>
-                            <label className="label">Last Name</label>
-                            <input name="lastName" defaultValue={contact.lastName} required className="input" />
+                            <label style={{ display: "block", fontSize: "0.875rem", fontWeight: "600", color: "#d1fae5", marginBottom: "0.5rem" }}>Last Name</label>
+                            <input name="lastName" defaultValue={contact.lastName} required style={{ width: "100%", padding: "0.75rem", background: "rgba(0, 0, 0, 0.2)", border: "1px solid rgba(16, 185, 129, 0.3)", borderRadius: "0.5rem", color: "#ffffff", outline: "none" }} />
                         </div>
                     </div>
 
-                    <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1rem", marginBottom: "1rem" }}>
+                    <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1.25rem" }}>
                         <div>
-                            <label className="label">Email</label>
-                            <input name="email" type="email" defaultValue={contact.email} required className="input" />
+                            <label style={{ display: "block", fontSize: "0.875rem", fontWeight: "600", color: "#d1fae5", marginBottom: "0.5rem" }}>Email</label>
+                            <input name="email" type="email" defaultValue={contact.email} required style={{ width: "100%", padding: "0.75rem", background: "rgba(0, 0, 0, 0.2)", border: "1px solid rgba(16, 185, 129, 0.3)", borderRadius: "0.5rem", color: "#ffffff", outline: "none" }} />
                         </div>
                         <div>
-                            <label className="label">Phone</label>
+                            <label style={{ display: "block", fontSize: "0.875rem", fontWeight: "600", color: "#d1fae5", marginBottom: "0.5rem" }}>Phone</label>
                             <input
                                 name="phone"
                                 type="tel"
@@ -137,64 +137,74 @@ export default function EditContactModal({ contact, onClose }: EditContactModalP
                                 value={phone}
                                 onChange={handlePhoneChange}
                                 placeholder="(xxx) xxx-xxxx"
-                                className="input"
+                                style={{ width: "100%", padding: "0.75rem", background: "rgba(0, 0, 0, 0.2)", border: "1px solid rgba(16, 185, 129, 0.3)", borderRadius: "0.5rem", color: "#ffffff", outline: "none" }}
                             />
                         </div>
                     </div>
 
-                    <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1rem", marginBottom: "1rem" }}>
+                    <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1.25rem" }}>
                         <div>
-                            <label className="label">Status</label>
-                            <select name="status" defaultValue={contact.status} className="input">
-                                <option value="New">New</option>
-                                <option value="Contacted">Contacted</option>
-                                <option value="FollowUp">Follow Up</option>
-                                <option value="Closed">Closed</option>
-                                <option value="Archived">Archived</option>
+                            <label style={{ display: "block", fontSize: "0.875rem", fontWeight: "600", color: "#d1fae5", marginBottom: "0.5rem" }}>Status</label>
+                            <select name="status" defaultValue={contact.status} style={{ width: "100%", padding: "0.75rem", background: "rgba(0, 0, 0, 0.2)", border: "1px solid rgba(16, 185, 129, 0.3)", borderRadius: "0.5rem", color: "#ffffff", outline: "none", appearance: "none" }}>
+                                <option value="New" style={{ background: "#064e3b" }}>New</option>
+                                <option value="Contacted" style={{ background: "#064e3b" }}>Contacted</option>
+                                <option value="FollowUp" style={{ background: "#064e3b" }}>Follow Up</option>
+                                <option value="Closed" style={{ background: "#064e3b" }}>Closed</option>
+                                <option value="Archived" style={{ background: "#064e3b" }}>Archived</option>
                             </select>
                         </div>
                         <div>
-                            <label className="label">Birthdate</label>
-                            <input name="birthdate" type="date" defaultValue={formattedBirthdate} className="input" />
+                            <label style={{ display: "block", fontSize: "0.875rem", fontWeight: "600", color: "#d1fae5", marginBottom: "0.5rem" }}>Birthdate</label>
+                            <input name="birthdate" type="date" defaultValue={formattedBirthdate} style={{ width: "100%", padding: "0.75rem", background: "rgba(0, 0, 0, 0.2)", border: "1px solid rgba(16, 185, 129, 0.3)", borderRadius: "0.5rem", color: "#ffffff", outline: "none" }} />
                         </div>
                     </div>
 
-                    <div style={{ marginBottom: "1rem" }}>
-                        <label className="label">Notes</label>
-                        <textarea name="notes" defaultValue={contact.notes || ""} rows={4} className="input" />
+                    <div>
+                        <label style={{ display: "block", fontSize: "0.875rem", fontWeight: "600", color: "#d1fae5", marginBottom: "0.5rem" }}>Notes</label>
+                        <textarea name="notes" defaultValue={contact.notes || ""} rows={4} style={{ width: "100%", padding: "0.75rem", background: "rgba(0, 0, 0, 0.2)", border: "1px solid rgba(16, 185, 129, 0.3)", borderRadius: "0.5rem", color: "#ffffff", outline: "none", resize: "none" }} />
                     </div>
 
-                    <div style={{ marginBottom: "1rem" }}>
-                        <label style={{ display: "flex", alignItems: "center", gap: "0.5rem", cursor: "pointer" }}>
-                            <input
-                                type="checkbox"
-                                name="optedOut"
-                                defaultChecked={contact.optedOut}
-                                style={{ width: "auto" }}
-                            />
-                            <span style={{ fontSize: "0.875rem", fontWeight: "500", color: "#374151" }}>
+                    <div>
+                        <label style={{ display: "flex", alignItems: "center", gap: "0.75rem", cursor: "pointer" }}>
+                            <div style={{ position: "relative", display: "flex", alignItems: "center" }}>
+                                <input
+                                    type="checkbox"
+                                    name="optedOut"
+                                    defaultChecked={contact.optedOut}
+                                    style={{
+                                        width: "1.25rem",
+                                        height: "1.25rem",
+                                        appearance: "none",
+                                        background: "rgba(0, 0, 0, 0.2)",
+                                        border: "1px solid rgba(16, 185, 129, 0.3)",
+                                        borderRadius: "0.25rem",
+                                        cursor: "pointer",
+                                        position: "relative"
+                                    }}
+                                />
+                            </div>
+                            <span style={{ fontSize: "0.875rem", fontWeight: "600", color: "#d1fae5" }}>
                                 Opted out of emails
                             </span>
                         </label>
                     </div>
 
-                    {error && <p style={{ color: "red", marginBottom: "1rem" }}>{error}</p>}
+                    {error && <p style={{ color: "#ef4444", fontSize: "0.875rem", fontWeight: "600", margin: 0 }}>{error}</p>}
 
-                    <div style={{ display: "flex", justifyContent: "space-between", marginTop: "1.5rem" }}>
+                    <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginTop: "1rem" }}>
                         <button
                             type="button"
                             onClick={handleDelete}
-                            className="btn"
-                            style={{ background: "#fee2e2", color: "#991b1b", border: "none" }}
+                            style={{ padding: "0.75rem 1.25rem", background: "rgba(239, 68, 68, 0.1)", color: "#ef4444", border: "1px solid rgba(239, 68, 68, 0.2)", borderRadius: "0.5rem", cursor: "pointer", fontWeight: "700", fontSize: "0.75rem", textTransform: "uppercase", letterSpacing: "0.025em" }}
                             disabled={loading}
                         >
                             Delete Contact
                         </button>
-                        <div style={{ display: "flex", gap: "0.5rem" }}>
+                        <div style={{ display: "flex", gap: "1rem" }}>
                             <button
                                 type="button"
                                 onClick={onClose}
-                                className="btn btn-secondary"
+                                style={{ padding: "0.75rem 1.5rem", border: "1px solid rgba(16, 185, 129, 0.3)", background: "transparent", color: "#d1fae5", borderRadius: "0.5rem", cursor: "pointer", fontWeight: "600" }}
                                 disabled={loading}
                             >
                                 Cancel
@@ -202,6 +212,7 @@ export default function EditContactModal({ contact, onClose }: EditContactModalP
                             <button
                                 type="submit"
                                 className="btn btn-primary"
+                                style={{ padding: "0.75rem 1.5rem", fontWeight: "700" }}
                                 disabled={loading}
                             >
                                 {loading ? "Saving..." : "Save Changes"}

@@ -67,32 +67,36 @@ export default function YahooIntegration({ isConnected, providerEmail }: YahooIn
     };
 
     return (
-        <div style={{ padding: "1.5rem", background: "white", borderRadius: "8px", boxShadow: "0 1px 3px rgba(0,0,0,0.1)", marginBottom: "2rem" }}>
-            <h2 style={{ fontSize: "1.25rem", fontWeight: "bold", marginBottom: "1rem", color: "#064e3b" }}>Yahoo Integration</h2>
+        <div style={{ background: "#064e3b", padding: "2rem", borderRadius: "1rem", boxShadow: "0 10px 15px -3px rgba(0, 0, 0, 0.4)", marginBottom: "2rem", border: "1px solid rgba(16, 185, 129, 0.2)" }}>
+            <h2 style={{ fontSize: "1.5rem", fontWeight: "700", marginBottom: "1.5rem", color: "#f0fdf4", letterSpacing: "-0.01em" }}>Yahoo Integration</h2>
 
             {!isConnected ? (
                 <div>
-                    <p style={{ marginBottom: "1rem", color: "#4b5563" }}>Connect your Yahoo account to enable email sending, calendar sync, and contact imports.</p>
+                    <p style={{ marginBottom: "2rem", color: "#d1fae5", lineHeight: "1.6" }}>Connect your Yahoo account to enable email sending, calendar sync, and contact imports.</p>
                     <button
                         onClick={handleConnect}
                         style={{
-                            backgroundColor: "#6001d2", // Yahoo Purple ish
+                            backgroundColor: "#6001d2",
                             color: "white",
-                            padding: "0.5rem 1rem",
-                            borderRadius: "4px",
-                            fontWeight: "bold",
+                            padding: "0.875rem 1.75rem",
+                            borderRadius: "0.5rem",
+                            fontWeight: "700",
                             border: "none",
-                            cursor: "pointer"
+                            cursor: "pointer",
+                            boxShadow: "0 4px 14px rgba(96, 1, 210, 0.4)",
+                            transition: "all 0.2s"
                         }}
+                        onMouseEnter={(e) => e.currentTarget.style.transform = 'translateY(-2px)'}
+                        onMouseLeave={(e) => e.currentTarget.style.transform = 'translateY(0)'}
                     >
                         Connect Yahoo Mail
                     </button>
                 </div>
             ) : (
                 <div>
-                    <div style={{ display: "flex", alignItems: "center", gap: "0.5rem", marginBottom: "1rem" }}>
-                        <span style={{ height: "10px", width: "10px", backgroundColor: "#22c55e", borderRadius: "50%", display: "inline-block" }}></span>
-                        <span style={{ fontWeight: "500", color: "#374151" }}>Connected as {providerEmail || "Yahoo User"}</span>
+                    <div style={{ display: "flex", alignItems: "center", gap: "0.75rem", marginBottom: "2rem", padding: "1rem", background: "rgba(0, 0, 0, 0.2)", borderRadius: "0.75rem", border: "1px solid rgba(16, 185, 129, 0.2)" }}>
+                        <span style={{ height: "10px", width: "10px", backgroundColor: "#10b981", borderRadius: "50%", display: "inline-block", boxShadow: "0 0 10px #10b981" }}></span>
+                        <span style={{ fontWeight: "600", color: "#f0fdf4" }}>Connected as <span style={{ color: "#10b981" }}>{providerEmail || "Yahoo User"}</span></span>
                     </div>
 
                     <div style={{ display: "flex", gap: "1rem", flexWrap: "wrap" }}>
@@ -100,7 +104,7 @@ export default function YahooIntegration({ isConnected, providerEmail }: YahooIn
                             onClick={handleImportContacts}
                             disabled={loading}
                             className="btn btn-secondary"
-                            style={{ fontSize: "0.9rem", padding: "0.5rem 1rem", opacity: loading ? 0.7 : 1 }}
+                            style={{ padding: "0.75rem 1.5rem", fontWeight: "700", fontSize: "0.875rem" }}
                         >
                             {loading ? "Working..." : "Import Contacts"}
                         </button>
@@ -108,14 +112,14 @@ export default function YahooIntegration({ isConnected, providerEmail }: YahooIn
                             onClick={handleTestEmail}
                             disabled={loading}
                             className="btn btn-primary"
-                            style={{ fontSize: "0.9rem", padding: "0.5rem 1rem", opacity: loading ? 0.7 : 1 }}
+                            style={{ padding: "0.75rem 1.5rem", fontWeight: "700", fontSize: "0.875rem" }}
                         >
                             {loading ? "Working..." : "Send Test Email"}
                         </button>
                     </div>
 
                     {message && (
-                        <div style={{ marginTop: "1rem", padding: "0.75rem", backgroundColor: "#f3f4f6", borderRadius: "4px", fontSize: "0.9rem" }}>
+                        <div style={{ marginTop: "1.5rem", padding: "1rem", background: message.includes("Error") ? "rgba(239, 68, 68, 0.1)" : "rgba(16, 185, 129, 0.1)", border: `1px solid ${message.includes("Error") ? "rgba(239, 68, 68, 0.2)" : "rgba(16, 185, 129, 0.2)"}`, color: message.includes("Error") ? "#ef4444" : "#10b981", borderRadius: "0.5rem", fontSize: "0.875rem", fontWeight: "600" }}>
                             {message}
                         </div>
                     )}

@@ -78,36 +78,36 @@ export default function NewContactForm() {
 
     return (
         <div style={{
-            background: "white",
-            padding: "1.5rem",
-            borderRadius: "0.5rem",
-            boxShadow: "0 1px 3px rgba(0,0,0,0.1)",
-            marginBottom: "2rem",
-            border: "1px solid #e5e7eb"
+            background: "#064e3b",
+            padding: "2rem",
+            borderRadius: "1rem",
+            boxShadow: "0 10px 15px -3px rgba(0, 0, 0, 0.4)",
+            marginBottom: "3rem",
+            border: "1px solid #10b981"
         }}>
-            <h3 style={{ fontSize: "1.125rem", fontWeight: "600", marginBottom: "1rem", color: "#1f2937" }}>
+            <h3 style={{ fontSize: "1.25rem", fontWeight: "700", marginBottom: "1.5rem", color: "#f0fdf4", letterSpacing: "-0.01em" }}>
                 New Contact Details
             </h3>
 
             <form onSubmit={handleSubmit}>
-                <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1rem", marginBottom: "1rem" }}>
+                <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1.25rem", marginBottom: "1.25rem" }}>
                     <div>
-                        <label style={{ display: "block", fontSize: "0.875rem", fontWeight: "500", color: "#374151" }}>First Name</label>
-                        <input name="firstName" required style={{ width: "100%", padding: "0.5rem", border: "1px solid #d1d5db", borderRadius: "0.375rem" }} />
+                        <label style={{ display: "block", fontSize: "0.875rem", fontWeight: "600", color: "#d1fae5", marginBottom: "0.5rem" }}>First Name</label>
+                        <input name="firstName" required style={{ width: "100%", padding: "0.75rem", background: "rgba(0, 0, 0, 0.2)", border: "1px solid rgba(16, 185, 129, 0.3)", borderRadius: "0.5rem", color: "#ffffff", outline: "none" }} />
                     </div>
                     <div>
-                        <label style={{ display: "block", fontSize: "0.875rem", fontWeight: "500", color: "#374151" }}>Last Name</label>
-                        <input name="lastName" required style={{ width: "100%", padding: "0.5rem", border: "1px solid #d1d5db", borderRadius: "0.375rem" }} />
+                        <label style={{ display: "block", fontSize: "0.875rem", fontWeight: "600", color: "#d1fae5", marginBottom: "0.5rem" }}>Last Name</label>
+                        <input name="lastName" required style={{ width: "100%", padding: "0.75rem", background: "rgba(0, 0, 0, 0.2)", border: "1px solid rgba(16, 185, 129, 0.3)", borderRadius: "0.5rem", color: "#ffffff", outline: "none" }} />
                     </div>
                 </div>
 
-                <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1rem", marginBottom: "1rem" }}>
+                <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1.25rem", marginBottom: "1.25rem" }}>
                     <div>
-                        <label style={{ display: "block", fontSize: "0.875rem", fontWeight: "500", color: "#374151" }}>Email</label>
-                        <input name="email" type="email" required style={{ width: "100%", padding: "0.5rem", border: "1px solid #d1d5db", borderRadius: "0.375rem" }} />
+                        <label style={{ display: "block", fontSize: "0.875rem", fontWeight: "600", color: "#d1fae5", marginBottom: "0.5rem" }}>Email</label>
+                        <input name="email" type="email" required style={{ width: "100%", padding: "0.75rem", background: "rgba(0, 0, 0, 0.2)", border: "1px solid rgba(16, 185, 129, 0.3)", borderRadius: "0.5rem", color: "#ffffff", outline: "none" }} />
                     </div>
                     <div>
-                        <label style={{ display: "block", fontSize: "0.875rem", fontWeight: "500", color: "#374151" }}>Phone</label>
+                        <label style={{ display: "block", fontSize: "0.875rem", fontWeight: "600", color: "#d1fae5", marginBottom: "0.5rem" }}>Phone</label>
                         <input
                             name="phone"
                             type="tel"
@@ -115,28 +115,28 @@ export default function NewContactForm() {
                             value={phone}
                             onChange={handlePhoneChange}
                             placeholder="(xxx) xxx-xxxx"
-                            style={{ width: "100%", padding: "0.5rem", border: "1px solid #d1d5db", borderRadius: "0.375rem" }}
+                            style={{ width: "100%", padding: "0.75rem", background: "rgba(0, 0, 0, 0.2)", border: "1px solid rgba(16, 185, 129, 0.3)", borderRadius: "0.5rem", color: "#ffffff", outline: "none" }}
                         />
                     </div>
                 </div>
 
-                <div style={{ marginBottom: "1rem" }}>
-                    <label style={{ display: "block", fontSize: "0.875rem", fontWeight: "500", color: "#374151" }}>Birthdate (Optional)</label>
-                    <input name="birthdate" type="date" style={{ width: "100%", padding: "0.5rem", border: "1px solid #d1d5db", borderRadius: "0.375rem" }} />
+                <div style={{ marginBottom: "1.25rem" }}>
+                    <label style={{ display: "block", fontSize: "0.875rem", fontWeight: "600", color: "#d1fae5", marginBottom: "0.5rem" }}>Birthdate (Optional)</label>
+                    <input name="birthdate" type="date" style={{ width: "100%", padding: "0.75rem", background: "rgba(0, 0, 0, 0.2)", border: "1px solid rgba(16, 185, 129, 0.3)", borderRadius: "0.5rem", color: "#ffffff", colorScheme: "dark", outline: "none" }} />
                 </div>
 
-                <div style={{ marginBottom: "1rem" }}>
-                    <label style={{ display: "block", fontSize: "0.875rem", fontWeight: "500", color: "#374151" }}>Notes (Optional)</label>
-                    <textarea name="notes" rows={3} style={{ width: "100%", padding: "0.5rem", border: "1px solid #d1d5db", borderRadius: "0.375rem" }} />
+                <div style={{ marginBottom: "1.5rem" }}>
+                    <label style={{ display: "block", fontSize: "0.875rem", fontWeight: "600", color: "#d1fae5", marginBottom: "0.5rem" }}>Notes (Optional)</label>
+                    <textarea name="notes" rows={3} style={{ width: "100%", padding: "0.75rem", background: "rgba(0, 0, 0, 0.2)", border: "1px solid rgba(16, 185, 129, 0.3)", borderRadius: "0.5rem", color: "#ffffff", outline: "none", resize: "none" }} />
                 </div>
 
-                {error && <p style={{ color: "#dc2626", fontSize: "0.875rem", marginBottom: "1rem" }}>{error}</p>}
+                {error && <p style={{ color: "#ef4444", fontSize: "0.875rem", marginBottom: "1.25rem" }}>{error}</p>}
 
-                <div style={{ display: "flex", justifyContent: "flex-end", gap: "0.5rem" }}>
+                <div style={{ display: "flex", justifyContent: "flex-end", gap: "1rem" }}>
                     <button
                         type="button"
                         onClick={() => setIsOpen(false)}
-                        style={{ padding: "0.5rem 1rem", border: "1px solid #d1d5db", background: "white", borderRadius: "0.375rem", cursor: "pointer" }}
+                        style={{ padding: "0.75rem 1.5rem", border: "1px solid rgba(16, 185, 129, 0.3)", background: "transparent", color: "#d1fae5", borderRadius: "0.5rem", cursor: "pointer", fontWeight: "600" }}
                     >
                         Cancel
                     </button>
@@ -144,7 +144,7 @@ export default function NewContactForm() {
                         type="submit"
                         disabled={loading}
                         className="btn btn-primary"
-                        style={{ padding: "0.5rem 1rem", fontSize: "0.875rem" }}
+                        style={{ padding: "0.75rem 1.5rem", fontSize: "0.875rem", fontWeight: "700" }}
                     >
                         {loading ? "Saving..." : "Save Contact"}
                     </button>

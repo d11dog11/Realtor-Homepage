@@ -55,11 +55,11 @@ export default function IntegrationsManager() {
 
     return (
         <div style={{ padding: "0" }}>
-            <h1 style={{ fontSize: "1.875rem", fontWeight: "bold", color: "#064e3b", margin: 0, marginBottom: "1.5rem" }}>
+            <h1 style={{ fontSize: "2rem", fontWeight: "700", color: "#f0fdf4", margin: 0, marginBottom: "3rem", letterSpacing: "-0.025em" }}>
                 Email & Calendar Integrations
             </h1>
 
-            <div style={{ display: "grid", gap: "1rem", maxWidth: "800px" }}>
+            <div style={{ display: "grid", gap: "1.5rem", maxWidth: "850px" }}>
                 {PROVIDERS.map((provider) => {
                     const integration = integrations.find((i) => i.provider === provider.id);
                     const isConnected = integration?.connected || false;
@@ -68,29 +68,41 @@ export default function IntegrationsManager() {
                         <div
                             key={provider.id}
                             style={{
-                                border: "1px solid #e5e7eb",
-                                borderRadius: "8px",
-                                padding: "1.5rem",
+                                border: "1px solid rgba(16, 185, 129, 0.2)",
+                                borderRadius: "1rem",
+                                padding: "2rem",
                                 display: "flex",
                                 justifyContent: "space-between",
                                 alignItems: "center",
-                                backgroundColor: isConnected ? "#f0fdf4" : "#ffffff",
-                                borderColor: isConnected ? "#86efac" : "#e5e7eb",
+                                backgroundColor: isConnected ? "rgba(16, 185, 129, 0.1)" : "#064e3b",
+                                boxShadow: "0 10px 15px -3px rgba(0, 0, 0, 0.4)",
+                                transition: "all 0.3s ease"
                             }}
                         >
-                            <div style={{ display: "flex", alignItems: "center", gap: "1rem" }}>
-                                <span style={{ fontSize: "2rem" }}>{provider.icon}</span>
+                            <div style={{ display: "flex", alignItems: "center", gap: "1.5rem" }}>
+                                <div style={{
+                                    width: "3.5rem",
+                                    height: "3.5rem",
+                                    borderRadius: "1rem",
+                                    background: "rgba(0, 0, 0, 0.2)",
+                                    display: "flex",
+                                    justifyContent: "center",
+                                    alignItems: "center",
+                                    fontSize: "1.75rem"
+                                }}>
+                                    {provider.icon}
+                                </div>
                                 <div>
-                                    <h3 style={{ fontSize: "1.125rem", fontWeight: "600", margin: 0 }}>
+                                    <h3 style={{ fontSize: "1.25rem", fontWeight: "700", margin: 0, color: "#f0fdf4" }}>
                                         {provider.name}
                                     </h3>
                                     {isConnected && integration?.providerEmail && (
-                                        <p style={{ fontSize: "0.875rem", color: "#6b7280", margin: "0.25rem 0 0 0" }}>
-                                            Connected as: {integration.providerEmail}
+                                        <p style={{ fontSize: "0.875rem", color: "#d1fae5", margin: "0.5rem 0 0 0", fontWeight: "500" }}>
+                                            Connected as: <span style={{ color: "#10b981" }}>{integration.providerEmail}</span>
                                         </p>
                                     )}
                                     {!isConnected && (
-                                        <p style={{ fontSize: "0.875rem", color: "#6b7280", margin: "0.25rem 0 0 0" }}>
+                                        <p style={{ fontSize: "0.875rem", color: "#d1fae5", margin: "0.5rem 0 0 0", opacity: "0.6" }}>
                                             Not connected
                                         </p>
                                     )}
@@ -102,14 +114,16 @@ export default function IntegrationsManager() {
                                     <button
                                         onClick={() => handleDisconnect(provider.id)}
                                         style={{
-                                            padding: "0.5rem 1rem",
-                                            backgroundColor: "#ef4444",
-                                            color: "white",
-                                            border: "none",
-                                            borderRadius: "6px",
+                                            padding: "0.75rem 1.5rem",
+                                            backgroundColor: "rgba(239, 68, 68, 0.1)",
+                                            color: "#ef4444",
+                                            border: "1px solid rgba(239, 68, 68, 0.2)",
+                                            borderRadius: "0.5rem",
                                             cursor: "pointer",
-                                            fontWeight: "500",
-                                            fontSize: "0.875rem",
+                                            fontWeight: "700",
+                                            fontSize: "0.75rem",
+                                            textTransform: "uppercase",
+                                            letterSpacing: "0.025em"
                                         }}
                                     >
                                         Disconnect
@@ -118,14 +132,17 @@ export default function IntegrationsManager() {
                                     <button
                                         onClick={() => handleConnect(provider.id)}
                                         style={{
-                                            padding: "0.5rem 1rem",
+                                            padding: "0.75rem 1.5rem",
                                             backgroundColor: provider.color,
                                             color: "white",
                                             border: "none",
-                                            borderRadius: "6px",
+                                            borderRadius: "0.5rem",
                                             cursor: "pointer",
-                                            fontWeight: "500",
-                                            fontSize: "0.875rem",
+                                            fontWeight: "700",
+                                            fontSize: "0.75rem",
+                                            textTransform: "uppercase",
+                                            letterSpacing: "0.025em",
+                                            boxShadow: "0 4px 10px rgba(0,0,0,0.2)"
                                         }}
                                     >
                                         Connect
@@ -137,11 +154,11 @@ export default function IntegrationsManager() {
                 })}
             </div>
 
-            <div style={{ marginTop: "2rem", padding: "1rem", backgroundColor: "#eff6ff", borderRadius: "8px", border: "1px solid #bfdbfe" }}>
-                <h4 style={{ fontSize: "1rem", fontWeight: "600", marginTop: 0, color: "#1e40af" }}>
+            <div style={{ marginTop: "3rem", padding: "2rem", backgroundColor: "rgba(16, 185, 129, 0.05)", borderRadius: "1rem", border: "1px solid rgba(16, 185, 129, 0.1)", maxWidth: "850px" }}>
+                <h4 style={{ fontSize: "1.125rem", fontWeight: "700", marginTop: 0, color: "#10b981", marginBottom: "1rem" }}>
                     📋 Integration Features
                 </h4>
-                <ul style={{ fontSize: "0.875rem", color: "#1e40af", lineHeight: "1.6" }}>
+                <ul style={{ fontSize: "0.875rem", color: "#d1fae5", lineHeight: "1.8", margin: 0, paddingLeft: "1.5rem" }}>
                     <li><strong>Email:</strong> Send emails directly from your connected account</li>
                     <li><strong>Calendar:</strong> Create and manage calendar events</li>
                     <li><strong>Contacts:</strong> Import and sync contacts from your email provider</li>

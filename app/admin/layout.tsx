@@ -39,52 +39,59 @@ export default function AdminLayout({
                 display: "flex",
                 justifyContent: "center",
                 alignItems: "center",
-                backgroundColor: "#f1f5f9"
+                backgroundColor: "#011c16" // Darker than main bg for focus
             }}>
                 <div style={{
-                    background: "white",
-                    padding: "2rem",
-                    borderRadius: "0.5rem",
-                    boxShadow: "0 4px 6px -1px rgba(0, 0, 0, 0.1)",
+                    background: "#064e3b",
+                    padding: "2.5rem",
+                    borderRadius: "1rem",
+                    boxShadow: "0 20px 25px -5px rgba(0, 0, 0, 0.5)",
+                    border: "1px solid #10b981",
                     width: "100%",
                     maxWidth: "400px"
                 }}>
-                    <h2 style={{ fontSize: "1.5rem", fontWeight: "bold", marginBottom: "1.5rem", color: "#064e3b", textAlign: "center" }}>
-                        Admin Login
+                    <h2 style={{ fontSize: "1.75rem", fontWeight: "700", marginBottom: "2rem", color: "#f0fdf4", textAlign: "center", letterSpacing: "-0.025em" }}>
+                        Admin Console
                     </h2>
-                    <form onSubmit={handleLogin} style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
+                    <form onSubmit={handleLogin} style={{ display: "flex", flexDirection: "column", gap: "1.25rem" }}>
                         <input
                             type="password"
                             value={password}
                             onChange={(e) => setPassword(e.target.value)}
-                            placeholder="Enter Password"
+                            placeholder="Enter Console Password"
                             style={{
-                                padding: "0.75rem",
-                                border: "1px solid #d1d5db",
-                                borderRadius: "0.375rem",
-                                fontSize: "1rem"
+                                padding: "0.875rem",
+                                background: "rgba(0, 0, 0, 0.2)",
+                                border: "1px solid #10b981",
+                                borderRadius: "0.5rem",
+                                fontSize: "1rem",
+                                color: "#ffffff",
+                                outline: "none"
                             }}
                             autoFocus
                         />
-                        {error && <p style={{ color: "#dc2626", fontSize: "0.875rem", textAlign: "center" }}>{error}</p>}
+                        {error && <p style={{ color: "#ef4444", fontSize: "0.875rem", textAlign: "center" }}>{error}</p>}
                         <button
                             type="submit"
                             style={{
-                                padding: "0.75rem",
-                                background: "#064e3b",
-                                color: "white",
+                                padding: "0.875rem",
+                                background: "linear-gradient(135deg, #10b981 0%, #059669 100%)",
+                                color: "#022c22",
                                 border: "none",
-                                borderRadius: "0.375rem",
+                                borderRadius: "0.5rem",
                                 fontSize: "1rem",
-                                fontWeight: "600",
-                                cursor: "pointer"
+                                fontWeight: "700",
+                                cursor: "pointer",
+                                transition: "transform 0.2s"
                             }}
+                            onMouseEnter={(e) => e.currentTarget.style.transform = 'scale(1.02)'}
+                            onMouseLeave={(e) => e.currentTarget.style.transform = 'scale(1)'}
                         >
                             Access Console
                         </button>
                     </form>
-                    <div style={{ marginTop: "1rem", textAlign: "center" }}>
-                        <a href="/" style={{ color: "#6b7280", textDecoration: "none", fontSize: "0.875rem" }}>&larr; Back to Website</a>
+                    <div style={{ marginTop: "1.5rem", textAlign: "center" }}>
+                        <a href="/" style={{ color: "#d1fae5", textDecoration: "none", fontSize: "0.875rem", opacity: "0.8" }}>&larr; Exit to Website</a>
                     </div>
                 </div>
             </div>
@@ -92,11 +99,11 @@ export default function AdminLayout({
     }
 
     return (
-        <div style={{ display: "flex", minHeight: "100vh", backgroundColor: "#f1f5f9" }}>
+        <div style={{ display: "flex", minHeight: "100vh", backgroundColor: "#022c22", color: "#f0fdf4" }}>
             <div style={{ position: "fixed", width: "250px", height: "100vh" }}>
                 <AdminSidebar />
             </div>
-            <div style={{ marginLeft: "250px", width: "calc(100% - 250px)", padding: "2rem" }}>
+            <div style={{ marginLeft: "250px", width: "calc(100% - 250px)", padding: "2.5rem" }}>
                 {children}
             </div>
         </div>

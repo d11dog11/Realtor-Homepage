@@ -11,23 +11,24 @@ export default async function AdminContactsPage() {
     });
 
     return (
-        <div style={{ padding: "2rem" }}>
-            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "2rem" }}>
-                <div style={{ display: "flex", alignItems: "center", gap: "1rem" }}>
-                    <h1 style={{ fontSize: "1.875rem", fontWeight: "bold", color: "#064e3b", margin: 0 }}>Contacts</h1>
+        <div style={{ padding: "0" }}>
+            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "3rem" }}>
+                <div style={{ display: "flex", alignItems: "center", gap: "1.5rem" }}>
+                    <h1 style={{ fontSize: "2rem", fontWeight: "700", color: "#f0fdf4", margin: 0, letterSpacing: "-0.025em" }}>Contacts</h1>
                     <Link
                         href="/admin/settings#contacts"
                         style={{
                             fontSize: "0.875rem",
-                            color: "#6b7280",
+                            color: "#d1fae5",
                             textDecoration: "none",
                             display: "flex",
                             alignItems: "center",
-                            gap: "0.25rem",
-                            padding: "0.25rem 0.5rem",
-                            borderRadius: "0.375rem",
-                            background: "#f3f4f6",
-                            transition: "all 0.2s"
+                            gap: "0.5rem",
+                            padding: "0.5rem 1rem",
+                            borderRadius: "0.5rem",
+                            background: "rgba(16, 185, 129, 0.1)",
+                            border: "1px solid rgba(16, 185, 129, 0.3)",
+                            transition: "all 0.3s ease",
                         }}
                     >
                         ⚙️ Settings
