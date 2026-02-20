@@ -270,7 +270,7 @@ section {
   border-radius: var(--border-radius);
   overflow: hidden;
   box-shadow: var(--shadow-lg);
-  border: 12px solid #333333;
+  border: 30px solid #333333;
   /* Dark Gray border */
 }
 
