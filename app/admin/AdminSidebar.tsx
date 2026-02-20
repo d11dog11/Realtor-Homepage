@@ -23,7 +23,7 @@ export default function AdminSidebar() {
 
     return (
         <aside style={{ width: "250px", background: "#f8fafc", padding: "2rem", borderRight: "1px solid #e5e7eb", height: "100%", display: "flex", flexDirection: "column" }}>
-            <h2 style={{ fontSize: "1.25rem", fontWeight: "bold", color: "#1e3a8a", marginBottom: "3rem" }}>Admin Console</h2>
+            <h2 style={{ fontSize: "1.25rem", fontWeight: "bold", color: "#064e3b", marginBottom: "3rem" }}>Admin Console</h2>
 
             <nav style={{ display: "flex", flexDirection: "column", gap: "0.5rem" }}>
                 {links.map(link => {

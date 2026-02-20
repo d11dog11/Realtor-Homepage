@@ -152,9 +152,9 @@ export default function EmailTemplateManager({ title }: { title?: string }) {
             const data = await res.json();
 
             // Insert PDF download link
-            const pdfHtml = `\n<div style="margin: 15px 0; padding: 15px; background: #f3f4f6; border-radius: 8px; border-left: 4px solid #1e3a8a;">
-    <p style="margin: 0 0 8px 0; font-weight: bold; color: #1e3a8a;">📄 Download Attachment</p>
-    <a href="${data.url}" style="color: #1e3a8a; text-decoration: none; font-weight: 500;" download>
+            const pdfHtml = `\n<div style="margin: 15px 0; padding: 15px; background: #f3f4f6; border-radius: 8px; border-left: 4px solid #064e3b;">
+    <p style="margin: 0 0 8px 0; font-weight: bold; color: #064e3b;">📄 Download Attachment</p>
+    <a href="${data.url}" style="color: #064e3b; text-decoration: none; font-weight: 500;" download>
         ${file.name}
     </a>
     <p style="margin: 8px 0 0 0; font-size: 12px; color: #6b7280;">Click to download PDF</p>
@@ -184,7 +184,7 @@ export default function EmailTemplateManager({ title }: { title?: string }) {
         <div>
             <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "2rem" }}>
                 {title ? (
-                    <h1 style={{ fontSize: "1.875rem", fontWeight: "bold", color: "#1e3a8a", margin: 0 }}>{title}</h1>
+                    <h1 style={{ fontSize: "1.875rem", fontWeight: "bold", color: "#064e3b", margin: 0 }}>{title}</h1>
                 ) : <div />}
 
                 {!isEditing && (

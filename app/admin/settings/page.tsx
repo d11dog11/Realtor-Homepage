@@ -48,12 +48,12 @@ export default function SettingsPage() {
 
     return (
         <div style={{ padding: "2rem" }}>
-            <h1 style={{ fontSize: "1.875rem", fontWeight: "bold", color: "#1e3a8a", marginBottom: "2rem" }}>Settings</h1>
+            <h1 style={{ fontSize: "1.875rem", fontWeight: "bold", color: "#064e3b", marginBottom: "2rem" }}>Settings</h1>
 
             <div style={{ display: "grid", gap: "2rem" }}>
                 {/* Security Section */}
                 <section id="security">
-                    <h2 style={{ fontSize: "1.5rem", fontWeight: "600", marginBottom: "1.5rem", color: "#1e3a8a", borderBottom: "2px solid #e5e7eb", paddingBottom: "0.5rem" }}>
+                    <h2 style={{ fontSize: "1.5rem", fontWeight: "600", marginBottom: "1.5rem", color: "#064e3b", borderBottom: "2px solid #e5e7eb", paddingBottom: "0.5rem" }}>
                         Security
                     </h2>
                     <div style={{ background: "white", padding: "1.5rem", borderRadius: "0.5rem", boxShadow: "0 1px 3px rgba(0,0,0,0.1)", maxWidth: "500px" }}>
@@ -120,7 +120,7 @@ export default function SettingsPage() {
 
                 {/* Contacts Section */}
                 <section id="contacts">
-                    <h2 style={{ fontSize: "1.5rem", fontWeight: "600", marginBottom: "1.5rem", color: "#1e3a8a", borderBottom: "2px solid #e5e7eb", paddingBottom: "0.5rem" }}>
+                    <h2 style={{ fontSize: "1.5rem", fontWeight: "600", marginBottom: "1.5rem", color: "#064e3b", borderBottom: "2px solid #e5e7eb", paddingBottom: "0.5rem" }}>
                         Contacts
                     </h2>
                     <div style={{ display: "flex", gap: "2rem", flexWrap: "wrap" }}>

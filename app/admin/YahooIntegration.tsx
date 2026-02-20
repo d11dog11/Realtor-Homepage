@@ -68,7 +68,7 @@ export default function YahooIntegration({ isConnected, providerEmail }: YahooIn
 
     return (
         <div style={{ padding: "1.5rem", background: "white", borderRadius: "8px", boxShadow: "0 1px 3px rgba(0,0,0,0.1)", marginBottom: "2rem" }}>
-            <h2 style={{ fontSize: "1.25rem", fontWeight: "bold", marginBottom: "1rem", color: "#1e3a8a" }}>Yahoo Integration</h2>
+            <h2 style={{ fontSize: "1.25rem", fontWeight: "bold", marginBottom: "1rem", color: "#064e3b" }}>Yahoo Integration</h2>
 
             {!isConnected ? (
                 <div>

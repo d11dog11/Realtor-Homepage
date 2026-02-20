@@ -28,7 +28,7 @@ export async function GET(
                 <title>Unsubscribed</title>
                 <style>
                     body { font-family: Arial, sans-serif; max-width: 600px; margin: 50px auto; padding: 20px; text-align: center; }
-                    h1 { color: #1e3a8a; }
+                    h1 { color: #064e3b; }
                     p { color: #6b7280; line-height: 1.6; }
                 </style>
             </head>

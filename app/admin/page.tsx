@@ -14,7 +14,7 @@ export default async function AdminContactsPage() {
         <div style={{ padding: "2rem" }}>
             <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "2rem" }}>
                 <div style={{ display: "flex", alignItems: "center", gap: "1rem" }}>
-                    <h1 style={{ fontSize: "1.875rem", fontWeight: "bold", color: "#1e3a8a", margin: 0 }}>Contacts</h1>
+                    <h1 style={{ fontSize: "1.875rem", fontWeight: "bold", color: "#064e3b", margin: 0 }}>Contacts</h1>
                     <Link
                         href="/admin/settings#contacts"
                         style={{

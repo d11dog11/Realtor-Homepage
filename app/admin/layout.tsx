@@ -49,7 +49,7 @@ export default function AdminLayout({
                     width: "100%",
                     maxWidth: "400px"
                 }}>
-                    <h2 style={{ fontSize: "1.5rem", fontWeight: "bold", marginBottom: "1.5rem", color: "#1e3a8a", textAlign: "center" }}>
+                    <h2 style={{ fontSize: "1.5rem", fontWeight: "bold", marginBottom: "1.5rem", color: "#064e3b", textAlign: "center" }}>
                         Admin Login
                     </h2>
                     <form onSubmit={handleLogin} style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
@@ -71,7 +71,7 @@ export default function AdminLayout({
                             type="submit"
                             style={{
                                 padding: "0.75rem",
-                                background: "#1e3a8a",
+                                background: "#064e3b",
                                 color: "white",
                                 border: "none",
                                 borderRadius: "0.375rem",

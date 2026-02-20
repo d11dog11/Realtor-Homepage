@@ -71,7 +71,7 @@ export default function ContactSyncer() {
 
     return (
         <div style={{ padding: "1.5rem", border: "1px solid #e5e7eb", borderRadius: "8px", backgroundColor: "#fff", height: "100%" }}>
-            <h3 style={{ fontSize: "1.25rem", fontWeight: "600", marginBottom: "1rem", color: "#1e3a8a", display: "flex", alignItems: "center", gap: "0.5rem" }}>
+            <h3 style={{ fontSize: "1.25rem", fontWeight: "600", marginBottom: "1rem", color: "#064e3b", display: "flex", alignItems: "center", gap: "0.5rem" }}>
                 <span>🔄</span> Sync Contacts
             </h3>
 

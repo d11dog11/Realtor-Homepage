@@ -55,7 +55,7 @@ export default function IntegrationsManager() {
 
     return (
         <div style={{ padding: "0" }}>
-            <h1 style={{ fontSize: "1.875rem", fontWeight: "bold", color: "#1e3a8a", margin: 0, marginBottom: "1.5rem" }}>
+            <h1 style={{ fontSize: "1.875rem", fontWeight: "bold", color: "#064e3b", margin: 0, marginBottom: "1.5rem" }}>
                 Email & Calendar Integrations
             </h1>
 

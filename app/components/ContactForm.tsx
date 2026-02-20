@@ -137,7 +137,7 @@ export default function ContactForm() {
             </div>
             <button
                 type="submit"
-                className="btn btn-secondary submit-btn"
+                className="btn btn-primary submit-btn"
                 disabled={loading}
                 style={{ marginTop: "1rem", fontWeight: "bold", opacity: loading ? 0.7 : 1 }}
             >
