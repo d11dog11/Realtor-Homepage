@@ -75,9 +75,9 @@ export default function Home() {
         <div className="container" id="contact-container">
           <div className="contact-card">
             <h2 className="text-center mb-8" style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "1rem", flexWrap: "nowrap", whiteSpace: "nowrap" }}>
-              <Image src="/phone-icon.png?v=3" alt="Phone" width={64} height={64} unoptimized style={{ objectFit: 'contain' }} />
+              <Image src="/phone-dialer.png" alt="Smartphone dialer" width={64} height={64} unoptimized style={{ objectFit: 'contain' }} />
               Request a Callback
-              <Image src="/phone-icon.png?v=3" alt="Phone" width={64} height={64} unoptimized style={{ objectFit: 'contain' }} />
+              <Image src="/phone-dialer.png" alt="Smartphone dialer" width={64} height={64} unoptimized style={{ objectFit: 'contain' }} />
             </h2>
             <p className="text-center mb-4" style={{ color: 'var(--color-text-light)' }}>
               Fill out the form below and I will get back to you shortly.
